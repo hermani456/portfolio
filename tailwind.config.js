@@ -15,7 +15,7 @@ module.exports = {
         back: "#0F151A",
         pri: "#F53FA1",
         sec: "#00ECFF",
-        accent: "4C1432",
+        acc: "#4C1432",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
