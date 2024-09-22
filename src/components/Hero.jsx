@@ -51,7 +51,7 @@ const Hero = () => {
           <div>
             <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold">
               <span className="neon-text-pink" ref={pinkTextRef}>
-                Hi, I'm
+                Hi, I&apos;m
               </span>{" "}
               <br />{" "}
               <span className="neon-text-blue" ref={blueTextRef}>
@@ -73,7 +73,6 @@ const Hero = () => {
               ))}
             </div>
             <div className="my-5 relative">
-              {/* <button className="bg-sec px-3 py-2 rounded overflow-hidden font-orbitron"> */}
               <button className="btn font-orbitron">
                 Contact Me
                 <div className="absolute w-20 h-20 bg-sec/30 blur-3xl pointer-events-none"></div>
@@ -96,26 +95,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-const Svg = ({ props }) => {
-  return (
-    <svg {...props} version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="RadialGradient1">
-          <stop offset="0%" stop-color="#00ECFF" />
-          <stop offset="100%" stop-color="transparent" />
-        </radialGradient>
-      </defs>
-
-      <rect
-        x="0"
-        y="0"
-        rx="2"
-        ry="2"
-        width="150"
-        height="150"
-        fill="url(#RadialGradient1)"
-      />
-    </svg>
-  );
-};
