@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* make #f53fa1 into a variable */
+:root {
+  --neon-pink: #f53fa1;
+  --neon-blue: #00ECFF;
+}
+
 *,
 *::before,
 *::after {
@@ -25,18 +31,40 @@
 }
 
 .neon-text-pink {
-  color: #f53fa1;
-  text-shadow: 0 0 5px #f53fa1, 0 0 10px #f53fa1, 0 0 20px #f53fa1,
-    0 0 40px #f53fa1, 0 0 80px #f53fa1;
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink),
+    0 0 40px var(--neon-pink), 0 0 80px var(--neon-pink);
 }
 
 .neon-text-blue {
-  color: #00ECFF;
-  text-shadow: 0 0 5px #00ECFF, 0 0 10px #00ECFF, 0 0 20px #00ECFF,
-    0 0 40px #00ECFF, 0 0 80px #00ECFF;
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue),
+    0 0 40px var(--neon-blue), 0 0 80px var(--neon-blue);
 }
 
+.bottom-shadow {
+  position: relative;
+}
 
+.bottom-shadow::before {
+  content: '';
+  position: absolute;
+  background: var(--neon-pink);
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(18rem) rotateX(40deg) translateZ(3rem)  scale(0.7, 0.2);
+  filter: blur(3rem);
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+.bottom-shadow:hover::before {
+  opacity: 0.8;
+}
 
 img,
 svg,
