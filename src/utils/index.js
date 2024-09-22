@@ -11,27 +11,35 @@ import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { SiPostgresql, SiTypescript, SiExpo } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 import { TbBrandReactNative } from "react-icons/tb";
+import { IoMdHome } from "react-icons/io";
+import { FaProjectDiagram } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa"
+import { FaPhoneAlt } from "react-icons/fa"
 
 export const navLinks = [
   {
     id: 1,
     name: "Home",
     path: "/",
+    icon: IoMdHome
   },
   {
     id: 2,
     name: "Projects",
     path: "/projects",
+    icon: FaProjectDiagram
   },
   {
     id: 3,
     name: "About",
     path: "/about",
+    icon: FaInfoCircle
   },
   {
     id: 4,
     name: "Contact",
     path: "/contact",
+    icon: FaPhoneAlt
   },
 ];
 

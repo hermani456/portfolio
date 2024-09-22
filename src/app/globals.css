@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* make #f53fa1 into a variable */
 :root {
   --neon-pink: #f53fa1;
   --neon-blue: #00ECFF;
@@ -23,6 +22,35 @@
     rgba(15, 21, 26, 1) 60%,
     rgba(15, 21, 26, 1) 100%
   );
+}
+
+.btn{
+  /* display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--neon-blue);
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background 0.3s, transform 0.2s; */
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  color: var(--neon-blue);
+  border: var(--neon-blue) .125rem solid;
+  padding: 0.5rem 1rem;
+  border-radius: .25rem;
+  text-shadow: 0 0 .25rem var(--neon-blue), 0 0 10px var(--neon-blue);
+  box-shadow: inset 0 0 .25rem var(--neon-blue), 0 0 .5rem var(--neon-blue);
+  transition: color .2s, border-color .2s, transform .2s;
+}
+
+.btn:hover {
+  background: var(--neon-blue);
+  color: black;
+  transform: scale(1.1);
 }
 
 .noise {

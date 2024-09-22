@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Sheet,
   SheetTrigger,
@@ -11,6 +11,7 @@ import { navLinks } from "@/utils";
 import Container from "@/components/Container";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { IoMdHome } from "react-icons/io";
 
 export default function Component() {
   return (
@@ -18,28 +19,31 @@ export default function Component() {
       <header className="flex h-20 w-full shrink-0 items-center relative z-10">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="lg:hidden">
-              <MenuIcon className="h-6 w-6" />
+            <Button variant="" size="icon" className="lg:hidden bg-acc/40">
+              <MenuIcon className="h-6 w-6 text-pri" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="bg-background/95">
+          <SheetContent side="left" className="bg-back border-sec">
             <div className="grid gap-2 py-6">
+              <h2 className="text-white text-xl font-orbitron">Navigation</h2>
               {navLinks.map((link) => (
                 <SheetClose asChild key={link.id}>
-                  <Link
-                    href={link.path}
-                    className="flex w-full items-center py-2 text-lg text-pri font-semibold"
-                    prefetch={false}
-                  >
-                    {link.name}
-                  </Link>
+                  <div className="flex items-center gap-2 px-2 rounded hover:text-red-500">
+                    <link.icon className="h-6 w-6 fill-sec" />
+                    <Link
+                      href={link.path}
+                      className="flex w-full items-center py-2 text-lg text-white font-exo"
+                      prefetch={false}
+                    >
+                      {link.name}
+                    </Link>
+                  </div>
                 </SheetClose>
               ))}
             </div>
           </SheetContent>
         </Sheet>
-        {/* <div className="flex justify-around items-center w-full"> */}
         <nav className="hidden lg:flex items-center w-full">
           <div className="flex justify-between w-full font-orbitron">
             <div className="flex gap-5">
@@ -69,7 +73,6 @@ export default function Component() {
             </div>
           </div>
         </nav>
-        {/* </div> */}
       </header>
     </Container>
   );
@@ -95,7 +98,7 @@ function MenuIcon(props) {
     </svg>
   );
 }
-// "#0F151A","#F53FA1","#00ECFF","#4C1432",
+
 function DoggoIcon(props) {
   return (
     <svg
@@ -107,7 +110,7 @@ function DoggoIcon(props) {
     >
       <defs>
         <style>
-        {`
+          {`
             .cls-1 { fill: #a0470d; }
             .cls-1, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 { fill-rule: evenodd; }
             .cls-2 { fill: #edc797; }
@@ -141,7 +144,7 @@ function DoggoIcon(props) {
         className="cls-4"
         d="M40.76,37.69h0a6.92,6.92,0,0,1,6.89,6.89v3.89a6.92,6.92,0,0,1-6.89,6.89h0a6.91,6.91,0,0,1-6.89-6.89V44.58a6.91,6.91,0,0,1,6.89-6.89Z"
       />
-     <path
+      <path
         id="left-pupil"
         className="cls-5"
         d="M40.64,39.57a3,3,0,1,1-3,3,3,3,0,0,1,3-3Z"
