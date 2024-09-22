@@ -48,7 +48,7 @@ export default function Marquee() {
   };
 
   return (
-    <section className="relative flex min-h-20 md:min-h-40 overflow-hidden my-5">
+    <section className="relative flex min-h-[10rem] md:min-h-40 overflow-hidden my-5">
       <div className="absolute">
         <div ref={slider} className="relative whitespace-nowrap">
           <div ref={firstText} className="relative flex">

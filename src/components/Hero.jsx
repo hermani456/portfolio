@@ -7,8 +7,6 @@ import doggo from "@/app/img/doggo.webp";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { FaLinkedinIn } from "react-icons/fa";
-import Link from "next/link";
 import { socialLinks } from "@/utils";
 import SocialIcon from "./SocialIcon";
 
@@ -49,7 +47,7 @@ const Hero = () => {
         <div></div>
       </div>
       <Container>
-        <div className="flex flex-col lg:flex-row justify-around items-center h-[calc(100vh-5rem)] relative">
+        <div className="flex flex-col lg:flex-row justify-around items-center h-[calc(100vh-5rem)] relative mt-5">
           <div>
             <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold">
               <span className="neon-text-pink" ref={pinkTextRef}>
@@ -74,7 +72,7 @@ const Hero = () => {
                 />
               ))}
             </div>
-            <div className="mt-5 relative">
+            <div className="my-5 relative">
               <button className="bg-sec px-3 py-2 rounded overflow-hidden">
                 Contact Me
                 <div className="absolute w-20 h-20 bg-sec/30 blur-3xl pointer-events-none"></div>
@@ -84,10 +82,10 @@ const Hero = () => {
           <div>
             <Image
               src={doggy}
-              alt="John Doe"
+              alt="perrujo"
               width={500}
               height={500}
-              className="pointer-events-none"
+              className="pointer-events-none mb-5"
             />
           </div>
         </div>
