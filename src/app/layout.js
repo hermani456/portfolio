@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Orbitron } from "next/font/google"
+import { Orbitron, Exo_2 } from "next/font/google"
 import "./globals.css";
 
 const geistSans = localFont({
@@ -18,7 +18,13 @@ const orbitron = Orbitron({
   display: "swap",
   variable: "--font-orbitron",
   weight: ["400", "500", "600", "700"],
+});
 
+const exo = Exo_2({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-exo",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -30,7 +36,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${orbitron.variable} ${geistMono.variable} antialiased bg-back`}
+        className={`${orbitron.variable} ${exo.variable} antialiased bg-back`}
       >
         {children}
       </body>
