@@ -47,7 +47,7 @@ const Hero = () => {
         <div></div>
       </div>
       <Container>
-        <div className="flex flex-col lg:flex-row justify-around items-center h-[calc(100vh-5rem)] relative mt-5">
+        <div className="flex flex-col lg:flex-row justify-around items-center h-[calc(100vh-5rem)] relative mt-10">
           <div>
             <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold">
               <span className="neon-text-pink" ref={pinkTextRef}>
@@ -73,7 +73,7 @@ const Hero = () => {
               ))}
             </div>
             <div className="my-5 relative">
-              <button className="bg-sec px-3 py-2 rounded overflow-hidden">
+              <button className="bg-sec px-3 py-2 rounded overflow-hidden font-orbitron">
                 Contact Me
                 <div className="absolute w-20 h-20 bg-sec/30 blur-3xl pointer-events-none"></div>
               </button>
@@ -85,7 +85,7 @@ const Hero = () => {
               alt="perrujo"
               width={500}
               height={500}
-              className="pointer-events-none mb-5"
+              className="pointer-events-none mb-10"
             />
           </div>
         </div>
