@@ -63,7 +63,7 @@ const Hero = () => {
               lacinia, dolor in lacinia dapibus, metus purus fermentum nisi, sit
               amet fermentum orci odio id purus.
             </p>
-            <div className="flex mt-5 gap-5 bg-acc/30 w-fit rounded-xl py-4 px-3">
+            <div className="flex mt-5 gap-5 bg-acc/30 w-fit rounded-xl py-2 lg:py-4 px-3">
               {socialLinks.map((item) => (
                 <SocialIcon
                   key={item.id}
