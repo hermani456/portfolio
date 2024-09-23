@@ -11,12 +11,35 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { navLinks } from "@/utils";
 import Container from "@/components/Container";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
-import { IoMdHome } from "react-icons/io";
-import doggoFace from "@/app/img/doggoface.svg";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Component() {
+  const ref = useRef(null);
+
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.to(ref.current, {
+      scrollTrigger: {
+        trigger: document.documentElement,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        onUpdate: (e) => {
+          if (e.direction === -1) {
+            gsap.to(ref.current, { y: 0, duration: 0.15, ease: "power1.inOut" });
+          } else {
+            gsap.to(ref.current, { y: -100, duration: 0.15, ease: "power1.inOut" });
+          }
+        },
+      },
+    });
+  }, []);
+
   return (
     <Container>
       <header className="flex h-20 w-full shrink-0 items-center relative z-10">
@@ -33,7 +56,6 @@ export default function Component() {
             </SheetTitle>
             <SheetDescription className="hidden">hola</SheetDescription>
             <div className="grid gap-2 py-6">
-              {/* <h2 className="text-white text-xl font-orbitron">Navigation</h2> */}
               {navLinks.map((link) => (
                 <SheetClose asChild key={link.id}>
                   <div className="flex items-center gap-2 px-2 rounded hover:text-red-500">
@@ -51,8 +73,8 @@ export default function Component() {
             </div>
           </SheetContent>
         </Sheet>
-        <nav className="hidden lg:flex items-center w-full">
-          <div className="flex justify-between w-full font-orbitron">
+        <nav className="hidden lg:flex items-center justify-center w-fit fixed top-5 left-1/2 transform -translate-x-1/2 px-10 rounded-full gap-5 bg-white/10 backdrop-blur-md" ref={ref}>
+          <div className="flex justify-between gap-10 w-full font-orbitron">
             <div className="flex gap-5">
               {navLinks.slice(0, 2).map((link) => (
                 <Link
@@ -206,7 +228,11 @@ const DoggoFace = (props) => {
         className="cls-1"
         d="M37.45,4c-16.74,4.38-14.14,28.52-17.6,42.3C18.76,50.66,15.46,61.22,10,61,4,60.74,4.73,42.7,4.46,38,4.28,34.83,3.8,28.85,0,27.81,7.15,2.49,19.52-5.83,37.45,4Z"
         id="path1"
-        style={{ stroke: "#f53fa1", strokeOpacity: 0.75686276, fill: "#f53fa1" }}
+        style={{
+          stroke: "#f53fa1",
+          strokeOpacity: 0.75686276,
+          fill: "#f53fa1",
+        }}
       />
       <path
         className="cls-2"
