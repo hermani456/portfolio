@@ -6,34 +6,31 @@ import { stackList } from "@/utils";
 import StackCard from "./StackCard";
 import { useGSAP } from "@gsap/react";
 
-
 export default function Marquee() {
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
   let xPercent = 0;
   let direction = -1;
-  
+
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
 
-
-
   useGSAP(() => {
     requestAnimationFrame(animation);
-  
+
     gsap.to(slider.current, {
       scrollTrigger: {
         trigger: document.documentElement,
-        start: 0,
-        end: window.innerHeight,
+        start: "top bottom",
+        end: "bottom top",
         scrub: true,
         onUpdate: (e) => (direction = e.direction * -1),
       },
       x: "-=300px",
     });
   }, []);
-  
+
   const animation = () => {
     if (xPercent <= -100) {
       xPercent = 0;
@@ -42,7 +39,7 @@ export default function Marquee() {
       xPercent = -100;
     }
     gsap.set(firstText.current, { xPercent: xPercent });
-    gsap.set(secondText.current, { xPercent: xPercent});
+    gsap.set(secondText.current, { xPercent: xPercent });
     xPercent += 0.05 * direction;
     requestAnimationFrame(animation);
   };

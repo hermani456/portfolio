@@ -3,7 +3,7 @@ import Container from "./Container";
 
 const Skills = () => {
   return (
-    <>
+    <div className="mb-14 lg:mb-40">
       <Container>
         <div className="flex justify-center items-center mb-10">
           <h2 className="text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue">
@@ -12,7 +12,7 @@ const Skills = () => {
         </div>
       </Container>
       <Marquee />
-    </>
+    </div>
   );
 };
 
