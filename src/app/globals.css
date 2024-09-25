@@ -23,6 +23,14 @@
     rgba(15, 21, 26, 1) 100%
   );
 }
+.radial-gradient-blue {
+  background: radial-gradient(
+    circle,
+    #00ECFF 0%,
+    rgba(15, 21, 26, 1) 60%,
+    rgba(15, 21, 26, 1) 100%
+  );
+}
 
 .btn{
   font-size: 1rem;

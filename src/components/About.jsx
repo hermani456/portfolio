@@ -12,7 +12,7 @@ const About = () => {
         <div className="mt-10 lg:mt-0">
           <p className="text-white lg:text-lg font-exo">
             I&apos;m a passionate <span className="text-sec text-xl font-semibold">web developer</span> with a strong focus on both{" "}
-            <span className="text-sec text-xl font-semibold">front-end</span> and full-stack development. I completed a 6-month
+            <span className="text-sec text-xl font-semibold">front-end</span> and full-stack development. In 2021, I completed a 6-month
             bootcamp for full-stack development, where I honed my skills in
             building dynamic and responsive applications. Currently, I am studying
             Computer Science, further deepening my understanding of software
