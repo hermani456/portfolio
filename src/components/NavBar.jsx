@@ -15,8 +15,10 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLenis } from "lenis/react";
 
 export default function Component() {
+  const lenis = useLenis()
   const ref = useRef(null);
 
   gsap.registerPlugin(useGSAP);
@@ -50,7 +52,7 @@ export default function Component() {
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="bg-back border-sec">
+          <SheetContent side="left" className="bg-white/10 backdrop-blur-md border-sec/30">
             <SheetTitle className="text-white text-xl font-orbitron">
               Navigation
             </SheetTitle>
@@ -64,6 +66,7 @@ export default function Component() {
                       href={link.path}
                       className="flex w-full items-center py-2 text-lg text-white font-exo"
                       prefetch={false}
+                      onClick={() => lenis?.scrollTo(link.path)}
                     >
                       {link.name}
                     </Link>
@@ -82,6 +85,7 @@ export default function Component() {
                   className="text-white font-opens flex justify-center items-center hover:text-sec text-shadow transition-all"
                   key={link.id}
                   prefetch={false}
+                  onClick={() => lenis?.scrollTo(link.path)}
                 >
                   {link.name}
                 </Link>
@@ -91,13 +95,14 @@ export default function Component() {
             <div className="flex gap-5">
               {navLinks.slice(2).map((link) => (
                 <Link
-                  href={link.path}
-                  className="text-white font-opens flex justify-center items-center hover:text-sec text-shadow transition-all"
-                  key={link.id}
-                  prefetch={false}
-                >
-                  {link.name}
-                </Link>
+                href={link.path}
+                className="text-white font-opens flex justify-center items-center hover:text-sec text-shadow transition-all"
+                key={link.id}
+                prefetch={false}
+                onClick={() => lenis?.scrollTo(link.path)}
+              >
+                {link.name}
+              </Link>
               ))}
             </div>
           </div>

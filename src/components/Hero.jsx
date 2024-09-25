@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="absolute w-[4rem] h-screen bg-acc/20 blur-xl top-0 right-[40%]"></div>
         <div></div>
       </div>
-      <Container>
+      <Container id="home">
         <div className="flex flex-col lg:flex-row justify-around items-center min-h-[calc(100dvh-5rem)] relative ">
           <div>
             <Terminal />
@@ -59,7 +59,7 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-white mt-5 font-exo">
-              I&apos;m a web developer passionate about designing sleek,
+              A web developer passionate about designing sleek,
               intuitive interfaces and building robust, full-stack applications.
               Let&apos;s turn ideas into reality.
             </p>

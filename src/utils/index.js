@@ -20,25 +20,25 @@ export const navLinks = [
   {
     id: 1,
     name: "Home",
-    path: "/",
+    path: "#home",
     icon: IoMdHome
   },
   {
     id: 2,
     name: "About",
-    path: "/about",
+    path: "#about",
     icon: FaInfoCircle
   },
   {
     id: 3,
     name: "Projects",
-    path: "/projects",
+    path: "#projects",
     icon: FaProjectDiagram
   },
   {
     id: 4,
     name: "Contact",
-    path: "/contact",
+    path: "#contact",
     icon: FaPhoneAlt
   },
 ];

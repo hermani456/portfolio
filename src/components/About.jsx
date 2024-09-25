@@ -3,7 +3,7 @@ import Container from "./Container";
 const About = () => {
   return (
     <Container>
-      <div className="flex flex-col lg:flex-row justify-around items-center mb-14 lg:mb-40">
+      <div id="about" className="flex flex-col lg:flex-row justify-around items-center mb-14 lg:mb-40">
         <div>
           <h2 className="text-white text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue">
             About Me
