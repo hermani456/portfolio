@@ -147,7 +147,7 @@ export const projects = [
     description: "A web page for a company that offers services, the page has a contact form.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
     github: "https://github.com/hermani456/willka-next",
-    live: "https://www.yme.cl",
+    live: "https://willko.diegocampuzano.me",
   },
 
 ]

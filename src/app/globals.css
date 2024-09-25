@@ -53,7 +53,6 @@
 }
 
 .path-middle{
-  position: relative;
   z-index: 1;
   clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%, 5% 50%);
   margin-inline: -0.7rem;
