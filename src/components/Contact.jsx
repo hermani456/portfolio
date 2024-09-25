@@ -1,10 +1,10 @@
 import Container from "./Container";
 
-const Projects = () => {
+const Contact = () => {
   return (
-    <Container id="projects">
+    <Container id="contact">
       <h2 className="text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue text-center">
-        Projects
+        Contact
       </h2>
       <div className="text-white">
         TODO
@@ -13,4 +13,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Contact;
