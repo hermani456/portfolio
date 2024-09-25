@@ -44,7 +44,33 @@
 .btn:hover {
   background: var(--neon-blue);
   color: black;
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.path {
+  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+  margin-right: -0.7rem;
+}
+
+.path-middle{
+  position: relative;
+  z-index: 1;
+  clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%, 5% 50%);
+  margin-inline: -0.7rem;
+
+}
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  background-color: #fff;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .noise {
@@ -86,6 +112,24 @@
 
 .bottom-shadow:hover::before {
   opacity: 0.8;
+}
+
+.flicker{
+  animation: flicker 3s linear infinite;
+}
+
+/* .flicker-slow{
+  animation: flicker 6s linear infinite;
+} */
+
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: .99;
+		
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+	}
 }
 
 img,

@@ -9,6 +9,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { socialLinks } from "@/utils";
 import SocialIcon from "./SocialIcon";
+import { SiManjaro } from "react-icons/si";
+import { FaFolderOpen, FaGithubAlt } from "react-icons/fa";
+import { FaCodeBranch } from "react-icons/fa6";
 
 const Hero = () => {
   gsap.registerPlugin(useGSAP);
@@ -47,10 +50,28 @@ const Hero = () => {
         <div></div>
       </div>
       <Container>
-        <div className="flex flex-col lg:flex-row justify-around items-center min-h-[calc(100vh-5rem)] relative mt-10">
+        <div className="flex flex-col lg:flex-row justify-around items-center min-h-[calc(100dvh-5rem)] relative mt-10">
           <div>
-            <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold">
-              <span className="neon-text-pink" ref={pinkTextRef}>
+            <div className="lg:flex font-exo hidden">
+              <div className=" flex h-7">
+                <div className="text-[#1f5668] bg-white w-fit px-5 flex justify-center items-center">
+                  <SiManjaro size={11} />
+                </div>
+                <div className="text-white bg-[#1f5668] px-[1.5rem] flex justify-center items-center path-middle">
+                  <FaFolderOpen size={13} />
+                  <p className="ml-2">~/Projects/portfolio</p>
+                </div>
+                <div className="text-white bg-[#612248] px-[1.5rem] flex justify-center items-center path gap-2">
+                  <FaGithubAlt size={13} />
+                  <FaCodeBranch size={13} />
+                  <p>master</p>
+                </div>
+                {/* blinking cursor */}
+                <div className="cursor ml-4"></div>
+              </div>
+            </div>
+            <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold mt-5">
+              <span className="neon-text-pink flicker" ref={pinkTextRef}>
                 Hi, I&apos;m
               </span>{" "}
               <br />{" "}
@@ -59,9 +80,9 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-white mt-5 font-exo">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              lacinia, dolor in lacinia dapibus, metus purus fermentum nisi, sit
-              amet fermentum orci odio id purus.
+              I&apos;m a web developer passionate about designing sleek,
+              intuitive interfaces and building robust, full-stack applications.
+              Let&apos;s turn ideas into reality.
             </p>
             <div className="flex mt-5 gap-5 bg-acc/30 w-fit rounded-xl py-2 lg:py-4 px-3">
               {socialLinks.map((item) => (

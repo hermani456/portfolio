@@ -1,7 +1,9 @@
 "use client"
+import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import NavBar from "@/components/NavBar";
+import Skills from "@/components/Skills";
 import { ReactLenis, useLenis  } from "lenis/react"
 
 export default function Home() {
@@ -12,7 +14,9 @@ export default function Home() {
     <ReactLenis root>
       <NavBar />
       <Hero />
-      <Marquee />
+      <About />
+      <Skills />
+      {/* <Marquee /> */}
       <div className="h-screen"></div>
     </ReactLenis>
   );

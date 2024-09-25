@@ -122,3 +122,32 @@ export const stackList = [
     icon: SiExpo,
   },
 ];
+
+// projects
+export const projects = [
+  {
+    id: 1,
+    name: "Wedding RSVP",
+    description: "A wedding RSVP app that allows guests to RSVP to a wedding, an email and a pdf invitation is sent to the guest upon successful RSVP.",
+    techStack: ["NextJS", "TailwindCSS", "PostgreSQL", "ReactJS", "Resend", "React Email", "React PDF"],
+    github: "https://github.com/hermani456/wedding",
+    live: "https://mariaydiego.yme.cl",
+  },
+  {
+    id: 2,
+    name: "Web Page for a Recruitment Agency",
+    description: "A web page for a recruitment agency that allows users to upload their CVs.",
+    techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
+    github: "https://github.com/hermani456/yme",
+    live: "https://www.yme.cl",
+  },
+  {
+    id: 3,
+    name: "Web page for an Company that offers services",
+    description: "A web page for a company that offers services, the page has a contact form.",
+    techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
+    github: "https://github.com/hermani456/willka-next",
+    live: "https://www.yme.cl",
+  },
+
+]

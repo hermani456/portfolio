@@ -33,7 +33,7 @@ export default function Component() {
           if (e.direction === -1) {
             gsap.to(ref.current, { y: 0, duration: 0.15, ease: "power1.inOut" });
           } else {
-            gsap.to(ref.current, { y: -100, duration: 0.15, ease: "power1.inOut" });
+            gsap.to(ref.current, { y: -100, duration: 0.15, ease: "power1.inOut"});
           }
         },
       },
