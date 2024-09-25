@@ -63,7 +63,7 @@
   display: inline-block;
   width: 10px;
   background-color: #fff;
-  animation: blink 1s step-end infinite;
+  animation: blink 2s step-end infinite;
 }
 
 @keyframes blink {
