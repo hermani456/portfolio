@@ -131,7 +131,7 @@ export const projects = [
   {
     id: 1,
     name: "Wedding RSVP",
-    description: "A wedding RSVP app that allows guests to RSVP to a wedding, an email and a pdf invitation is sent to the guest upon successful RSVP.",
+    description: "A wedding RSVP app that allows guests to respond to wedding invitations. Upon successful RSVP, guests receive both an email and a PDF invitation.",
     techStack: ["NextJS", "TailwindCSS", "PostgreSQL", "ReactJS", "Resend", "React Email", "React PDF"],
     github: "https://github.com/hermani456/wedding",
     live: "https://mariaydiego.yme.cl",
@@ -140,7 +140,7 @@ export const projects = [
   {
     id: 2,
     name: "Web Page for a Recruitment Agency",
-    description: "A web page for a recruitment agency that allows users to upload their CVs.",
+    description: "A web page for a recruitment agency that enables users to upload their CVs easily.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
     github: "https://github.com/hermani456/yme",
     live: "https://www.yme.cl",
@@ -148,8 +148,8 @@ export const projects = [
   },
   {
     id: 3,
-    name: "Web page for an Company that offers services",
-    description: "A web page for a company that offers services, the page has a contact form.",
+    name: "A Company Services Web Page",
+    description: "A web page highlighting the diverse range of services offered by the company.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
     github: "https://github.com/hermani456/willka-next",
     live: "https://willko.diegocampuzano.me",
