@@ -28,7 +28,7 @@ const ProjectCard = ({ name, description, techStack, live, img }) => {
           </span>
         ))}
       </div>
-      <div className="p-2">
+      <div className="px-2 pb-5">
         <Link href={live} target="_blank" className="btn font-orbitron">
           <div className="flex justify-center items-center gap-2">
             <FaExternalLinkAlt className="w-3 lg:w-5"/>

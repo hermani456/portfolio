@@ -1,16 +1,11 @@
 "use client";
 import { useRef, useState } from "react";
 import Container from "./Container";
-import { FaSpinner } from "react-icons/fa";
-import { GiSpinalCoil } from "react-icons/gi";
 import { GiSpinningBlades } from "react-icons/gi";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const form = useRef(null);
-  const [name, setName] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   // const notify = () =>
@@ -49,8 +44,8 @@ const Contact = () => {
 
   return (
     <Container id="contact">
-      <section className=" p-5" id="contact">
-        <div className="max-w-screen-xl mx-auto my-auto text-center">
+      <section className="p-5" id="contact">
+        <div className="text-center">
           <h2 className="text-white text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue">
             Contact Me
           </h2>
