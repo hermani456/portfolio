@@ -1,5 +1,4 @@
 import Image from "next/image";
-import yme from "@/app/img/yme.png";
 import Link from "next/link";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -13,7 +12,6 @@ const ProjectCard = ({ name, description, techStack, live, img }) => {
         height={200}
         className="pointer-events-none filter grayscale-[70%] object-contain"
       />
-      {/* <div className="flex flex-col p-2 justify-between"> */}
       <div className="px-2">
         <h3 className="text-sec font-orbitron text-xl sm:text-2xl font-semibold">
           {name}
@@ -24,7 +22,7 @@ const ProjectCard = ({ name, description, techStack, live, img }) => {
         {techStack?.map((tech) => (
           <span
             key={tech}
-            className="text-white bg-acc/50 px-2 py-1 rounded-md text-sm"
+            className="text-white bg-acc/50 px-2 py-1 rounded-md text-xs md:text-sm font-exo"
           >
             {tech}
           </span>
@@ -38,7 +36,6 @@ const ProjectCard = ({ name, description, techStack, live, img }) => {
           </div>
         </Link>
       </div>
-      {/* </div> */}
     </div>
   );
 };
