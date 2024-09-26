@@ -7,6 +7,7 @@ import Skills from "@/components/Skills";
 import { ReactLenis, useLenis  } from "lenis/react"
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   const lenis = useLenis(({ scroll }) => {

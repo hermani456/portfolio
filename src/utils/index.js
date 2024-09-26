@@ -15,6 +15,9 @@ import { IoMdHome } from "react-icons/io";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa"
 import { FaPhoneAlt } from "react-icons/fa"
+import wedding from "@/app/img/wedding.png";
+import wilkaka from "@/app/img/wilkaka.png";
+import yme from "@/app/img/yme.png";
 
 export const navLinks = [
   {
@@ -132,6 +135,7 @@ export const projects = [
     techStack: ["NextJS", "TailwindCSS", "PostgreSQL", "ReactJS", "Resend", "React Email", "React PDF"],
     github: "https://github.com/hermani456/wedding",
     live: "https://mariaydiego.yme.cl",
+    img: wedding,
   },
   {
     id: 2,
@@ -140,6 +144,7 @@ export const projects = [
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
     github: "https://github.com/hermani456/yme",
     live: "https://www.yme.cl",
+    img: yme,
   },
   {
     id: 3,
@@ -148,6 +153,7 @@ export const projects = [
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
     github: "https://github.com/hermani456/willka-next",
     live: "https://willko.diegocampuzano.me",
+    img: wilkaka,
   },
 
 ]

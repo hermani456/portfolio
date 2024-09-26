@@ -101,6 +101,14 @@
   position: relative;
 }
 
+.border-gradient {
+  border-image-slice: 1;
+  border-width: 3px;
+}
+.border-gradient-neon {
+  border-image-source: linear-gradient(to left, #00ECFF, #F53FA1);
+}
+
 .bottom-shadow::before {
   content: '';
   position: absolute;
