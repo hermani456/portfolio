@@ -1,5 +1,6 @@
 import { Orbitron, Exo_2 } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         className={`${orbitron.variable} ${exo.variable} antialiased bg-back`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
