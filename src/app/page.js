@@ -7,7 +7,7 @@ import Skills from "@/components/Skills";
 import { ReactLenis, useLenis  } from "lenis/react"
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import ProjectCard from "@/components/ProjectCard";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const lenis = useLenis(({ scroll }) => {
@@ -21,8 +21,8 @@ export default function Home() {
       <Skills />
       <Projects />
       <Contact />
-      {/* <Marquee /> */}
-      <div className="h-screen"></div>
+      <Footer />
+      {/* <div className="h-screen"></div> */}
     </ReactLenis>
   );
 }
