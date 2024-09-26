@@ -70,7 +70,7 @@
 .cursor {
   display: inline-block;
   width: 10px;
-  background-color: #fff;
+  background-color: #1f5668;
   animation: blink 2s step-end infinite;
 }
 
