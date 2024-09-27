@@ -37,7 +37,8 @@ const Contact = () => {
           e.target.reset();
         },
         (error) => {
-          console.log(error.text);
+          setLoading(false);
+          e.target.reset();
         }
       );
   };
