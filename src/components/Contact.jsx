@@ -45,7 +45,6 @@ const Contact = () => {
 
   return (
     <Container id="contact">
-      <section className="p-5" id="contact">
         <div className="text-center">
           <h2 className="text-white text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue">
             Contact Me
@@ -132,7 +131,6 @@ const Contact = () => {
             </button>
           </div>
         </form>
-      </section>
     </Container>
   );
 };

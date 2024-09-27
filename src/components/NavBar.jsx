@@ -8,7 +8,6 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { navLinks } from "@/utils";
 import Container from "@/components/Container";
 import { useRef } from "react";
@@ -74,14 +73,12 @@ export default function Component() {
                   <div className="flex items-center gap-2 px-2 rounded hover:text-red-500">
                     <link.icon className="h-6 w-6 fill-sec" />
                     <SheetTrigger asChild>
-                      <Link
-                        href={link.path}
+                      <button
                         className="flex w-full items-center py-2 text-lg text-white font-exo"
-                        prefetch={false}
                         onClick={() => lenis?.scrollTo(link.path)}
                       >
                         {link.name}
-                      </Link>
+                      </button>
                     </SheetTrigger>
                   </div>
                 </SheetClose>
@@ -96,29 +93,25 @@ export default function Component() {
           <div className="flex justify-between gap-10 w-full font-orbitron">
             <div className="flex gap-5">
               {navLinks.slice(0, 2).map((link) => (
-                <Link
-                  href={link.path}
+                <button
                   className="text-white font-opens flex justify-center items-center hover:text-sec text-shadow transition-all"
                   key={link.id}
-                  prefetch={false}
                   onClick={() => lenis?.scrollTo(link.path)}
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
             </div>
             <DoggoFace className="size-16" />
             <div className="flex gap-5">
               {navLinks.slice(2).map((link) => (
-                <Link
-                  href={link.path}
+                <button
                   className="text-white font-opens flex justify-center items-center hover:text-sec text-shadow transition-all"
                   key={link.id}
-                  prefetch={false}
                   onClick={() => lenis?.scrollTo(link.path)}
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
             </div>
           </div>

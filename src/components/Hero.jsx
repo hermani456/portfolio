@@ -8,8 +8,11 @@ import { useGSAP } from "@gsap/react";
 import { socialLinks } from "@/utils";
 import SocialIcon from "./SocialIcon";
 import Terminal from "./Terminal";
+import { useLenis } from "lenis/react";
+
 
 const Hero = () => {
+  const lenis = useLenis();
   gsap.registerPlugin(useGSAP);
   const blueTextRef = useRef();
   const pinkTextRef = useRef();
@@ -58,8 +61,8 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-white mt-5 font-exo">
-              A web developer passionate about designing sleek,
-              intuitive interfaces and building robust, full-stack applications.
+              A web developer passionate about designing sleek, intuitive
+              interfaces and building robust, full-stack applications.
               Let&apos;s turn ideas into reality.
             </p>
             <div className="flex mt-5 gap-5 bg-acc/30 w-fit rounded-xl py-2 lg:py-4 px-3">
@@ -72,7 +75,7 @@ const Hero = () => {
               ))}
             </div>
             <div className="my-5 relative">
-              <button className="btn font-orbitron">
+              <button className="btn font-orbitron" onClick={() => lenis?.scrollTo("#contact")}>
                 Contact Me
                 <div className="absolute w-20 h-20 bg-sec/30 blur-3xl pointer-events-none"></div>
               </button>
