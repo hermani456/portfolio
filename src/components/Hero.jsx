@@ -16,6 +16,8 @@ const Hero = () => {
   gsap.registerPlugin(useGSAP);
   const blueTextRef = useRef();
   const pinkTextRef = useRef();
+  const titleRef = useRef();
+  const imgRef = useRef();
 
   useGSAP(() => {
     const createNeonEffect = (element) => {
@@ -38,6 +40,15 @@ const Hero = () => {
     if (pinkTextRef.current) {
       createNeonEffect(pinkTextRef.current);
     }
+
+    gsap.from(titleRef.current.children, {
+      opacity: 0,
+      y: 100,
+      stagger: 0.2,
+      duration: 0.5,
+      delay: 0.5,
+      ease: "circle.inOut",
+    });
   }, []);
   return (
     <>
@@ -49,7 +60,7 @@ const Hero = () => {
       </div>
       <Container id="home">
         <div className="flex flex-col lg:flex-row justify-around items-center min-h-[calc(100dvh-5rem)] relative ">
-          <div>
+          <div ref={titleRef}>
             <Terminal />
             <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold mt-5">
               <span className="neon-text-pink flicker" ref={pinkTextRef}>
