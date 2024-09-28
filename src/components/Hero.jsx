@@ -41,15 +41,17 @@ const Hero = () => {
       createNeonEffect(pinkTextRef.current);
     }
 
-    gsap.from(titleRef.current.children, {
-      y: 100,
+    gsap.to(titleRef.current, {
       opacity: 1,
-      delay: 0.5,
+    });
+
+    gsap.from(titleRef.current.children, {
+      y: 50,
       opacity: 0,
-      stagger: 0.2,
       duration: 0.5,
       delay: 0.5,
-      ease: "circle.inOut",
+      stagger: 0.5,
+      ease: "power4.inOut",
     });
   }, []);
   return (
@@ -62,7 +64,7 @@ const Hero = () => {
       </div>
       <Container id="home">
         <div className="flex flex-col lg:flex-row justify-around items-center min-h-[calc(100dvh-5rem)] relative ">
-          <div ref={titleRef}>
+          <div ref={titleRef} className="opacity-0">
             <Terminal />
             <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold mt-5">
               <span className="neon-text-pink flicker" ref={pinkTextRef}>
