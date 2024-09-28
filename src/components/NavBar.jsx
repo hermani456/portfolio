@@ -47,6 +47,17 @@ export default function Component() {
         },
       },
     });
+
+    gsap.to(ref.current, {
+      opacity: 1,
+    });
+
+    gsap.from(ref.current, {
+      y: -100,
+      duration: 1,
+      delay: 0.5,
+      ease: "back.inOut",
+    });
   }, []);
 
   return (
@@ -87,7 +98,7 @@ export default function Component() {
           </SheetContent>
         </Sheet>
         <nav
-          className="hidden lg:flex items-center justify-center w-fit fixed top-5 left-1/2 transform -translate-x-1/2 px-10 rounded-full gap-5 bg-white/10 backdrop-blur-md"
+          className="hidden lg:flex items-center justify-center w-fit fixed top-5 left-1/2 transform -translate-x-1/2 px-10 rounded-full gap-5 bg-white/10 backdrop-blur-md opacity-0"
           ref={ref}
         >
           <div className="flex justify-between gap-10 w-full font-orbitron">
