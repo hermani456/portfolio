@@ -40,9 +40,10 @@ const Hero = () => {
     if (pinkTextRef.current) {
       createNeonEffect(pinkTextRef.current);
     }
-    gsap.set(titleRef.current.children, { opacity: 1 });
 
     gsap.from(titleRef.current.children, {
+      opacity: 1,
+      delay: 0.5,
       opacity: 0,
       y: 100,
       stagger: 0.2,
