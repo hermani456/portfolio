@@ -10,7 +10,6 @@ import SocialIcon from "./SocialIcon";
 import Terminal from "./Terminal";
 import { useLenis } from "lenis/react";
 
-
 const Hero = () => {
   const lenis = useLenis();
   gsap.registerPlugin(useGSAP);
@@ -52,8 +51,19 @@ const Hero = () => {
       delay: 0.5,
       stagger: {
         amount: 0.5,
-
       },
+      ease: "back.inOut",
+    });
+
+    gsap.to(imgRef.current, {
+      opacity: 1,
+    });
+
+    gsap.from(imgRef.current.children, {
+      y: -50,
+      opacity: 0,
+      duration: 1,
+      delay: 0.5,
       ease: "back.inOut",
     });
   }, []);
@@ -93,13 +103,16 @@ const Hero = () => {
               ))}
             </div>
             <div className="my-5 relative">
-              <button className="btn font-orbitron" onClick={() => lenis?.scrollTo("#contact")}>
+              <button
+                className="btn font-orbitron"
+                onClick={() => lenis?.scrollTo("#contact")}
+              >
                 Contact Me
                 <div className="absolute w-20 h-20 bg-sec/30 blur-3xl pointer-events-none"></div>
               </button>
             </div>
           </div>
-          <div>
+          <div ref={imgRef} className="opacity-0">
             <Image
               src={doggy}
               alt="perrujo"
