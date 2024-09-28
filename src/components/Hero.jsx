@@ -42,10 +42,10 @@ const Hero = () => {
     }
 
     gsap.from(titleRef.current.children, {
+      y: 100,
       opacity: 1,
       delay: 0.5,
       opacity: 0,
-      y: 100,
       stagger: 0.2,
       duration: 0.5,
       delay: 0.5,
