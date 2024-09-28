@@ -20,7 +20,6 @@ const Hero = () => {
   const imgRef = useRef();
 
   useGSAP(() => {
-    titleRef.current.style.opacity = 1;
     const createNeonEffect = (element) => {
       gsap.to(element, {
         textShadow:
@@ -41,6 +40,7 @@ const Hero = () => {
     if (pinkTextRef.current) {
       createNeonEffect(pinkTextRef.current);
     }
+    titleRef.current.style.opacity = 1;
 
     gsap.from(titleRef.current.children, {
       opacity: 0,
