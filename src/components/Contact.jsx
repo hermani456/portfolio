@@ -9,6 +9,7 @@ const Contact = () => {
   const { containerRef, titleRef, contentRef } = useGsapAnimations();
   const form = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [sentMessageStatus, setSentMessageStatus] = useState("");
 
   // const notify = () =>
   //   toast.success("Mensaje enviado", {
@@ -37,10 +38,18 @@ const Contact = () => {
         (result) => {
           setLoading(false);
           e.target.reset();
+          setSentMessageStatus("Message sent");
+          setTimeout(() => {
+            setSentMessageStatus("");
+          }, 5000);
         },
         (error) => {
           setLoading(false);
           e.target.reset();
+          setSentMessageStatus("Error sending message");
+          setTimeout(() => {
+            setSentMessageStatus("");
+          }, 5000);
         }
       );
   };
@@ -75,10 +84,8 @@ const Contact = () => {
                     required
                     type="text"
                     name="name"
-                    // value={name}
                     id="name"
                     className="block w-full rounded-md border-0 px-3.5 py-2 bg-back text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                    // onChange={(e) => setName(e.target.value)}
                   />
                 </div>
               </div>
@@ -94,10 +101,8 @@ const Contact = () => {
                     required
                     type="text"
                     name="subject"
-                    // value={subject}
                     id="subject"
                     className="block w-full rounded-md border-0 px-3.5 py-2 bg-back text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                    // onChange={(e) => setSubject(e.target.value)}
                   />
                 </div>
               </div>
@@ -113,10 +118,8 @@ const Contact = () => {
                     required
                     type="text"
                     name="message"
-                    // value={message}
                     id="message"
                     className="block w-full rounded-md border-0 px-3.5 py-2 min-h-[6rem] max-h-[10rem] bg-back text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                    // onChange={(e) => setMessage(e.target.value)}
                   />
                 </div>
               </div>
@@ -137,6 +140,13 @@ const Contact = () => {
                 )}
               </button>
             </div>
+            <p
+              className={`min-h-10 text-center mt-5 font-exo text-pri transition-all duration-500 ${
+                sentMessageStatus ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              {sentMessageStatus}
+            </p>
           </form>
         </div>
       </div>
