@@ -3,9 +3,6 @@ import { useRef, useState } from "react";
 import Container from "./Container";
 import { GiSpinningBlades } from "react-icons/gi";
 import emailjs from "@emailjs/browser";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useGsapAnimations from "@/hooks/useGsapAnimation";
 
 const Contact = () => {
