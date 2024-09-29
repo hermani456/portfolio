@@ -17,8 +17,9 @@ const exo = Exo_2({
 });
 
 export const metadata = {
-  title: "Diego Campuzano's Portfolio",
-  description: "Diego Campuzano's Portfolio",
+  title: "Diego Campuzano",
+  description:
+    "Diego Campuzano is a web developer with a passion for creating intuitive, user-friendly interfaces and developing reliable, full-stack applications.",
 };
 
 export default function RootLayout({ children }) {
