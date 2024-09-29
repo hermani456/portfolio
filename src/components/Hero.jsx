@@ -77,7 +77,7 @@ const Hero = () => {
             <Terminal />
             <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold mt-5">
               <span className="neon-text-pink flicker" ref={pinkTextRef}>
-                Hi, I&apos;m
+                Hi, I&apos;m{" "}
               </span>{" "}
               <br />{" "}
               <span className="neon-text-blue" ref={blueTextRef}>
