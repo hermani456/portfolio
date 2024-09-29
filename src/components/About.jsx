@@ -1,4 +1,3 @@
-"use client";
 import Container from "./Container";
 import useGsapAnimations from "@/hooks/useGsapAnimation";
 
