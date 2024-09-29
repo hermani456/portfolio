@@ -89,7 +89,7 @@ const Hero = () => {
               user-friendly interfaces and developing reliable, full-stack
               applications. Let&apos;s turn ideas into reality.
             </p>
-            <div className="flex mt-5 gap-5 bg-acc/30 w-fit rounded-xl py-2 lg:py-4 px-3">
+            <div className="flex mt-5 gap-5 w-fit py-2 lg:py-4">
               {socialLinks.map((item) => (
                 <SocialIcon
                   key={item.id}
