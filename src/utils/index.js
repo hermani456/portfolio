@@ -15,9 +15,9 @@ import { IoMdHome } from "react-icons/io";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa"
 import { FaPhoneAlt } from "react-icons/fa"
-import wedding from "@/app/img/wedding.png";
-import wilkaka from "@/app/img/wilkaka.png";
-import yme from "@/app/img/yme.png";
+import wedding from "@/app/img/wedding.webp";
+import wilko from "@/app/img/wilko.webp";
+import yme from "@/app/img/yme.webp";
 
 export const navLinks = [
   {
@@ -153,7 +153,7 @@ export const projects = [
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
     github: "https://github.com/hermani456/willka-next",
     live: "https://willko.diegocampuzano.me",
-    img: wilkaka,
+    img: wilko,
   },
 
 ]
