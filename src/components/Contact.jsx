@@ -3,10 +3,46 @@ import { useRef, useState } from "react";
 import Container from "./Container";
 import { GiSpinningBlades } from "react-icons/gi";
 import emailjs from "@emailjs/browser";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Contact = () => {
   const form = useRef(null);
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.to(containerRef.current, {
+      opacity: 1,
+    });
+
+    gsap.from(titleRef.current, {
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: "top 80%",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "back.inOut",
+    });
+
+    gsap.from(form.current, {
+      scrollTrigger: {
+        trigger: form.current,
+        start: "top 80%",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "back.inOut",
+    });
+  }, []);
 
   // const notify = () =>
   //   toast.success("Mensaje enviado", {
@@ -45,8 +81,9 @@ const Contact = () => {
 
   return (
     <Container id="contact">
+      <div className="opacity-0" ref={containerRef}>
         <div className="text-center">
-          <h2 className="text-white text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue">
+          <h2 className="text-white text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue" ref={titleRef}>
             Contact Me
           </h2>
         </div>
@@ -131,6 +168,7 @@ const Contact = () => {
             </button>
           </div>
         </form>
+      </div>
     </Container>
   );
 };

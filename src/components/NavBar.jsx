@@ -272,3 +272,23 @@ const DoggoFace = (props) => {
     </svg>
   );
 };
+
+
+// const children = projectsRef.current.children;
+
+//     Array.from(children).forEach((child) => {
+//       gsap.from(child, {
+//         scrollTrigger: {
+//           trigger: child,
+//           start: "top 90%", 
+//           end: "top 10%", 
+//         },
+//         opacity: 0,
+//         y: 50,
+//         duration: 1,
+//         ease: "power3.out",
+//         stagger: {
+//           amount: 1,
+//         },
+//       });
+//     });

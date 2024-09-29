@@ -25,6 +25,7 @@ const About = () => {
       y: 50,
       opacity: 0,
       duration: 1,
+      ease: "back.inOut",
     });
 
     gsap.from(textRef.current, {
@@ -35,6 +36,7 @@ const About = () => {
       y: 50,
       opacity: 0,
       duration: 1,
+      ease: "back.inOut",
     })
   }, []);
   return (

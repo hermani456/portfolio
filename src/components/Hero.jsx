@@ -36,10 +36,6 @@ const Hero = () => {
       createNeonEffect(blueTextRef.current);
     }
 
-    if (pinkTextRef.current) {
-      createNeonEffect(pinkTextRef.current);
-    }
-
     gsap.to(titleRef.current, {
       opacity: 1,
     });
