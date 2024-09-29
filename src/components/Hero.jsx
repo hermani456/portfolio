@@ -93,6 +93,7 @@ const Hero = () => {
               {socialLinks.map((item) => (
                 <SocialIcon
                   key={item.id}
+                  name={item.name}
                   href={item.path}
                   IconSocial={item.icon}
                 />
