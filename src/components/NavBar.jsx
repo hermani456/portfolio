@@ -19,6 +19,7 @@ import { useLenis } from "lenis/react";
 export default function Component() {
   const lenis = useLenis();
   const ref = useRef(null);
+  const iconRef = useRef(null);
 
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);
@@ -58,6 +59,17 @@ export default function Component() {
       delay: 0.5,
       ease: "back.inOut",
     });
+
+    gsap.to(iconRef.current, {
+      opacity: 1,
+    });
+
+    gsap.from(iconRef.current, {
+      y: -50,
+      duration: 1,
+      delay: 0.5,
+      ease: "back.inOut",
+    });
   }, []);
 
   return (
@@ -65,7 +77,11 @@ export default function Component() {
       <header className="flex h-20 w-full shrink-0 items-center relative z-10">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="" size="icon" className="lg:hidden bg-acc/40">
+            <Button
+              size="icon"
+              className="lg:hidden bg-acc/40 opacity-0"
+              ref={iconRef}
+            >
               <MenuIcon className="h-6 w-6 text-pri" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
