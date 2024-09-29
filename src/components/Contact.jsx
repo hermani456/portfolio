@@ -47,7 +47,7 @@ const Contact = () => {
 
   return (
     <Container id="contact">
-      <div className="opacity-0" ref={containerRef}>
+      <div className="opacity-0 mb-14 lg:mb-40" ref={containerRef}>
         <div className="text-center">
           <h2
             className="text-white text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue"
