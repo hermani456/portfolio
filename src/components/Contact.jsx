@@ -38,7 +38,7 @@ const Contact = () => {
         (result) => {
           setLoading(false);
           e.target.reset();
-          setSentMessageStatus("Message sent");
+          setSentMessageStatus("Your message has been sent successfully!");
           setTimeout(() => {
             setSentMessageStatus("");
           }, 5000);
@@ -46,7 +46,7 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           e.target.reset();
-          setSentMessageStatus("Error sending message");
+          setSentMessageStatus("here was an error sending your message. Please try again later.");
           setTimeout(() => {
             setSentMessageStatus("");
           }, 5000);
