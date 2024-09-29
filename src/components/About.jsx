@@ -1,49 +1,15 @@
 "use client";
 import Container from "./Container";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import useGsapAnimations from "@/hooks/useGsapAnimation";
 
 const About = () => {
-  gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger);
+  const { containerRef, titleRef, contentRef } = useGsapAnimations();
 
-  const aboutRef = useRef(null);
-  const titleRef = useRef(null);
-  const textRef = useRef(null);
-  useGSAP(() => {
-    gsap.to(aboutRef.current, {
-      opacity: 1,
-    });
-
-    gsap.from(titleRef.current, {
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top 80%",
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "back.inOut",
-    });
-
-    gsap.from(textRef.current, {
-      scrollTrigger: {
-        trigger: textRef.current,
-        start: "top 80%",
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "back.inOut",
-    })
-  }, []);
   return (
     <Container>
       <div
         id="about"
-        ref={aboutRef}
+        ref={containerRef}
         className="flex flex-col lg:flex-row justify-around items-center mb-14 lg:mb-40 opacity-0"
       >
         <div ref={titleRef}>
@@ -51,7 +17,7 @@ const About = () => {
             About Me
           </h2>
         </div>
-        <div className="mt-10 lg:mt-0" ref={textRef}>
+        <div className="mt-10 lg:mt-0" ref={contentRef}>
           <p className="text-white lg:text-lg font-exo">
             I&apos;m a passionate{" "}
             <span className="text-sec text-xl font-semibold">
