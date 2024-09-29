@@ -11,7 +11,6 @@ const Contact = () => {
   const form = useRef(null);
   const containerRef = useRef(null);
   const titleRef = useRef(null);
-  const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
   gsap.registerPlugin(useGSAP);
   gsap.registerPlugin(ScrollTrigger);

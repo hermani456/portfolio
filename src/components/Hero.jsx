@@ -56,7 +56,7 @@ const Hero = () => {
     });
 
     gsap.from(imgRef.current.children, {
-      y: -50,
+      y: 50,
       opacity: 0,
       duration: 1,
       delay: 0.5,
