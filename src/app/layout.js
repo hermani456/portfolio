@@ -39,7 +39,7 @@ export const metadata = {
         url: ogImage2.src,
         width: ogImage2.width,
         height: ogImage2.height,
-        alt: "alt",
+        alt: "alt text",
       },
     ],
   },
