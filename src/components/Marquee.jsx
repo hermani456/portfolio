@@ -6,7 +6,7 @@ import { stackList } from "@/utils";
 import StackCard from "./StackCard";
 import { useGSAP } from "@gsap/react";
 
-export default function Marquee({ref, raf}) {
+export default function Marquee({ ref, raf }) {
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
@@ -45,9 +45,16 @@ export default function Marquee({ref, raf}) {
   };
 
   return (
-    <section className="relative flex min-h-[8rem] lg:min-h-[12rem] overflow-hidden my-5" ref={raf}>
+    <section
+      className="relative flex min-h-[8rem] lg:min-h-[12rem] overflow-hidden my-5"
+      ref={raf}
+    >
       <div className="absolute">
-        <div ref={slider} className="relative whitespace-nowrap">
+        <div
+          ref={slider}
+          className="relative whitespace-nowrap"
+          aria-hidden="true"
+        >
           <div ref={firstText} className="relative flex">
             {stackList.map((stack) => (
               <StackCard key={stack.id} name={stack.name} Icon={stack.icon} />
@@ -58,6 +65,11 @@ export default function Marquee({ref, raf}) {
               <StackCard key={stack.id} name={stack.name} Icon={stack.icon} />
             ))}
           </div>
+        </div>
+        <div className="sr-only">
+          {stackList.map((skill) => (
+            <span key={skill.id}>{skill.name}</span>
+          ))}
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { SiManjaro } from "react-icons/si";
 
 const Terminal = () => {
   return (
-    <div className="lg:flex font-exo hidden">
+    <div className="lg:flex font-exo hidden" aria-hidden="true">
       <div className=" flex h-7">
         <div className="text-[#1f5668] bg-white w-fit px-5 flex justify-center items-center">
           <SiManjaro size={11} />

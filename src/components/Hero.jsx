@@ -112,7 +112,7 @@ const Hero = () => {
           <div ref={imgRef} className="opacity-0">
             <Image
               src={doggy}
-              alt="perrujo"
+              alt="An image of a guy coding with his dog beside him"
               width={500}
               height={500}
               className="pointer-events-none mb-10"

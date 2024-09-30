@@ -19,6 +19,7 @@ const ProjectCard = ({ name, description, techStack, live, img }) => {
         <p className="text-white font-exo text-sm lg:text-md">{description}</p>
       </div>
       <div className="flex gap-2 flex-wrap px-2">
+        <span className="sr-only">Tech stack for this project</span>
         {techStack?.map((tech) => (
           <span
             key={tech}
