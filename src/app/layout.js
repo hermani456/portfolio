@@ -1,7 +1,7 @@
 import { Orbitron, Exo_2 } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import ogImage from "./og-image.png";
+import ogImage from "./dclogosm.png";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
