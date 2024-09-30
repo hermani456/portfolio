@@ -67,7 +67,7 @@ export default function Component() {
     });
 
     gsap.from(iconRef.current, {
-      y: -50,
+      y: -60,
       duration: 1,
       delay: 0.5,
       ease: "back.inOut",
