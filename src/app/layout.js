@@ -20,6 +20,20 @@ export const metadata = {
   title: "Diego Campuzano",
   description:
     "Diego Campuzano is a web developer with a passion for creating intuitive, user-friendly interfaces and developing reliable, full-stack applications.",
+  openGraph: {
+    title: 'Diego Campuzano',
+    description: "Diego Campuzano is a web developer with a passion for creating intuitive, user-friendly interfaces and developing reliable, full-stack applications.",
+    url: 'https://www.diegocampuzano.com',
+    siteName: 'Diego Campuzano',
+    images: [
+      {
+        url: "https://diegocampuzano.com/og.png",
+        width: 1024,
+        height: 600,
+        alt: "Diego Campuzano",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
