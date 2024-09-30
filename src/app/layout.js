@@ -1,7 +1,8 @@
 import { Orbitron, Exo_2 } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
-import ogImage from "./dclogosm.png";
+import ogImage from "./og-image.png";
+import ogImage2 from "./dclogosm.png";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -33,6 +34,12 @@ export const metadata = {
         width: ogImage.width,
         height: ogImage.height,
         alt: "Diego Campuzano",
+      },
+      {
+        url: ogImage2.src,
+        width: ogImage2.width,
+        height: ogImage2.height,
+        alt: "alt",
       },
     ],
   },
