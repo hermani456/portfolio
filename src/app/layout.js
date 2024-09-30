@@ -20,6 +20,7 @@ export const metadata = {
   title: "Diego Campuzano",
   description:
     "Diego Campuzano is a web developer with a passion for creating intuitive, user-friendly interfaces and developing reliable, full-stack applications.",
+  metadataBase: new URL("https://www.diegocampuzano.com"),
   openGraph: {
     title: 'Diego Campuzano',
     description: "Diego Campuzano is a web developer with a passion for creating intuitive, user-friendly interfaces and developing reliable, full-stack applications.",
