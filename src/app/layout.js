@@ -26,14 +26,6 @@ export const metadata = {
     description: "Diego Campuzano is a web developer with a passion for creating intuitive, user-friendly interfaces and developing reliable, full-stack applications.",
     url: 'https://www.diegocampuzano.com',
     siteName: 'Diego Campuzano',
-    images: [
-      {
-        url: "https://www.diegocampuzano.com/opengraph-image.png",
-        width: 1024,
-        height: 600,
-        alt: "Diego Campuzano",
-      },
-    ],
   },
 };
 
