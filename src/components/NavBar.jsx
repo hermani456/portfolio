@@ -15,6 +15,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "lenis/react";
+import Image from "next/image";
+import dc from "@/app/img/dclogosm.png";
 
 export default function Component() {
   const lenis = useLenis();
@@ -114,7 +116,7 @@ export default function Component() {
           </SheetContent>
         </Sheet>
         <nav
-          className="hidden lg:flex items-center justify-center w-fit fixed top-5 left-1/2 transform -translate-x-1/2 px-10 rounded-full gap-5 bg-white/10 backdrop-blur-md opacity-0"
+          className="hidden lg:flex items-center justify-center h-16 w-fit fixed top-5 left-1/2 transform -translate-x-1/2 px-10 rounded-full gap-5 bg-white/10 backdrop-blur-md opacity-0"
           ref={ref}
         >
           <div className="flex justify-between gap-10 w-full font-orbitron">
@@ -129,7 +131,8 @@ export default function Component() {
                 </button>
               ))}
             </div>
-            <DoggoFace className="size-16" />
+            {/* <DoggoFace className="size-16" /> */}
+            <Image src={dc} alt="dc" width={50} height={50} className="pointer-events-none"/>
             <div className="flex gap-5">
               {navLinks.slice(2).map((link) => (
                 <button
@@ -273,15 +276,14 @@ const DoggoFace = (props) => {
   );
 };
 
-
 // const children = projectsRef.current.children;
 
 //     Array.from(children).forEach((child) => {
 //       gsap.from(child, {
 //         scrollTrigger: {
 //           trigger: child,
-//           start: "top 90%", 
-//           end: "top 10%", 
+//           start: "top 90%",
+//           end: "top 10%",
 //         },
 //         opacity: 0,
 //         y: 50,
