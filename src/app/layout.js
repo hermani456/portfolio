@@ -28,7 +28,7 @@ export const metadata = {
     siteName: 'Diego Campuzano',
     images: [
       {
-        url: "https://www.diegocampuzano.com/og-image.png",
+        url: "https://www.diegocampuzano.com/og.jpg",
         width: 1024,
         height: 600,
         alt: "Diego Campuzano",
