@@ -96,6 +96,10 @@
   text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue),
     0 0 40px var(--neon-blue), 0 0 80px var(--neon-blue);
 }
+.neon-text-blue-light {
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+}
 
 .bottom-shadow {
   position: relative;
@@ -133,9 +137,6 @@
   animation: flicker 3s linear infinite;
 }
 
-/* .flicker-slow{
-  animation: flicker 6s linear infinite;
-} */
 
 @keyframes flicker {
 	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {

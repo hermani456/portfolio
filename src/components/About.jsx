@@ -1,5 +1,7 @@
+import Head from "next/head";
 import Container from "./Container";
 import useGsapAnimations from "@/hooks/useGsapAnimation";
+import Header from "./Header";
 
 const About = () => {
   const { containerRef, titleRef, contentRef } = useGsapAnimations();
@@ -12,9 +14,7 @@ const About = () => {
         className="flex flex-col lg:flex-row justify-around items-center mb-14 lg:mb-40 opacity-0"
       >
         <div ref={titleRef}>
-          <h2 className="text-white text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue">
-            About Me
-          </h2>
+          <Header>About Me</Header>
         </div>
         <div className="mt-10 lg:mt-0" ref={contentRef}>
           <p className="text-white lg:text-lg font-exo">

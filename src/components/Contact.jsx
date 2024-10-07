@@ -4,6 +4,7 @@ import Container from "./Container";
 import { GiSpinningBlades } from "react-icons/gi";
 import emailjs from "@emailjs/browser";
 import useGsapAnimations from "@/hooks/useGsapAnimation";
+import Header from "./Header";
 
 const Contact = () => {
   const { containerRef, titleRef, contentRef } = useGsapAnimations();
@@ -46,7 +47,9 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           e.target.reset();
-          setSentMessageStatus("here was an error sending your message. Please try again later.");
+          setSentMessageStatus(
+            "here was an error sending your message. Please try again later."
+          );
           setTimeout(() => {
             setSentMessageStatus("");
           }, 5000);
@@ -58,12 +61,9 @@ const Contact = () => {
     <Container id="contact">
       <div className="opacity-0 mb-14 lg:mb-40" ref={containerRef}>
         <div className="text-center">
-          <h2
-            className="text-white text-3xl lg:text-5xl font-orbitron font-semibold neon-text-blue"
-            ref={titleRef}
-          >
-            Contact Me
-          </h2>
+          <div ref={titleRef}>
+            <Header>Contact Me</Header>
+          </div>
         </div>
         <div ref={contentRef}>
           <form
