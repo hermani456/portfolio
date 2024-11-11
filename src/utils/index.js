@@ -139,21 +139,21 @@ export const projects = [
   },
   {
     id: 2,
-    name: "Web Page for a Recruitment Agency",
-    description: "A web page for a recruitment agency that enables users to upload their CVs easily.",
-    techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
-    github: "https://github.com/hermani456/yme",
-    live: "https://www.yme.cl",
-    img: yme,
-  },
-  {
-    id: 3,
     name: "A Company Services Web Page",
     description: "A web page highlighting the diverse range of services offered by the company.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
     github: "https://github.com/hermani456/willka-next",
     live: "https://willko.diegocampuzano.me",
     img: wilko,
+  },
+  {
+    id: 3,
+    name: "Web Page for a Recruitment Agency",
+    description: "A web page for a recruitment agency that enables users to upload their CVs easily.",
+    techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
+    github: "https://github.com/hermani456/yme",
+    live: "https://www.yme.cl",
+    img: yme,
   },
 
 ]
