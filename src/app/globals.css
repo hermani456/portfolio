@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --gradient {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
   --neon-pink: #f53fa1;
-  --neon-blue: #00ECFF;
+  --neon-blue: #00ecff;
+  --neon-purple: #7a00ff;
 }
 
 *,
@@ -26,27 +33,27 @@
 .radial-gradient-blue {
   background: radial-gradient(
     circle,
-    #00ECFF 0%,
+    #00ecff 0%,
     rgba(15, 21, 26, 1) 60%,
     rgba(15, 21, 26, 1) 100%
   );
 }
 
-.btn{
+.btn {
   font-size: 1rem;
   font-weight: 600;
   display: inline-block;
   color: var(--neon-blue);
-  border: var(--neon-blue) .125rem solid;
+  border: var(--neon-blue) 0.125rem solid;
   padding: 0.5rem 1rem;
-  border-radius: .25rem;
-  text-shadow: 0 0 .25rem var(--neon-blue), 0 0 10px var(--neon-blue);
-  box-shadow: inset 0 0 .25rem var(--neon-blue), 0 0 .5rem var(--neon-blue);
-  transition: color .2s, border-color .2s, transform .2s;
+  border-radius: 0.25rem;
+  text-shadow: 0 0 0.25rem var(--neon-blue), 0 0 10px var(--neon-blue);
+  box-shadow: inset 0 0 0.25rem var(--neon-blue), 0 0 0.5rem var(--neon-blue);
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 .text-shadow:hover {
-  text-shadow: 0 0 .25rem var(--neon-blue), 0 0 10px var(--neon-blue);
+  text-shadow: 0 0 0.25rem var(--neon-blue), 0 0 10px var(--neon-blue);
 }
 
 .btn:hover {
@@ -60,11 +67,10 @@
   margin-right: -0.7rem;
 }
 
-.path-middle{
+.path-middle {
   z-index: 1;
   clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%, 5% 50%);
   margin-inline: -0.7rem;
-
 }
 
 .cursor {
@@ -87,14 +93,16 @@
 
 .neon-text-pink {
   color: var(--neon-pink);
-  text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink),
-    0 0 40px var(--neon-pink), 0 0 80px var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink),
+    0 0 80px var(--neon-pink);
 }
 
 .neon-text-blue {
   color: var(--neon-blue);
-  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue),
-    0 0 40px var(--neon-blue), 0 0 80px var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue),
+    0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue),
+    0 0 80px var(--neon-blue);
 }
 .neon-text-blue-light {
   color: var(--neon-blue);
@@ -105,16 +113,44 @@
   position: relative;
 }
 
-.border-gradient {
-  border-image-slice: 1;
-  border-width: 3px;
+.card-border {
+  border-radius: 1rem;
+  position: relative;
 }
-.border-gradient-neon {
-  border-image-source: linear-gradient(to left, #00ECFF, #F53FA1);
+
+.card-border::before,
+.card-border::after {
+  content: "";
+  position: absolute;
+  inset: -0.3rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient),
+    var(--neon-pink),
+    var(--neon-purple),
+    var(--neon-blue),
+    var(--neon-purple),
+    var(--neon-pink)
+  );
+  border-radius: inherit;
+  animation: rotation 20s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    --gradient: 0deg;
+  }
+  100% {
+    --gradient: 360deg;
+  }
+}
+
+.card-border::after{
+  filter: blur(2rem);
 }
 
 .bottom-shadow::before {
-  content: '';
+  content: "";
   position: absolute;
   background: var(--neon-pink);
   top: 100%;
@@ -122,7 +158,7 @@
   width: 100%;
   height: 100%;
 
-  transform: perspective(18rem) rotateX(40deg) translateZ(3rem)  scale(0.7, 0.2);
+  transform: perspective(18rem) rotateX(40deg) translateZ(3rem) scale(0.7, 0.2);
   filter: blur(3rem);
   opacity: 0.3;
   pointer-events: none;
@@ -133,19 +169,29 @@
   opacity: 0.8;
 }
 
-.flicker{
+.flicker {
   animation: flicker 3s linear infinite;
 }
 
-
 @keyframes flicker {
-	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
-    opacity: .99;
-		
-	}
-	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
-		opacity: 0.4;
-	}
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 0.99;
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.4;
+  }
 }
 
 img,
@@ -169,7 +215,8 @@ p {
   text-wrap: pretty;
 }
 
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
