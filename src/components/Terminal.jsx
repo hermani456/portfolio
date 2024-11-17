@@ -6,7 +6,7 @@ const Terminal = () => {
   return (
     <div className="lg:flex font-exo hidden" aria-hidden="true">
       <div className=" flex h-7">
-        <div className="text-[#1f5668] bg-white w-fit px-5 flex justify-center items-center">
+        <div className="text-[#1f5668] bg-white w-fit px-5 flex justify-center items-center rounded-full">
           <SiManjaro size={11} />
         </div>
         <div className="text-white bg-[#1f5668] px-[1.5rem] flex justify-center items-center path-middle">
