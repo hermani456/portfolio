@@ -133,7 +133,7 @@
     var(--neon-pink)
   );
   border-radius: inherit;
-  animation: rotation 20s linear infinite;
+  animation: rotation 15s linear infinite;
 }
 
 @keyframes rotation {
