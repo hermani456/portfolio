@@ -14,7 +14,9 @@ const Skills = () => {
           </div>
         </div>
       </Container>
-      <Marquee raf={contentRef} />
+      <div className="max-w-[1920px] mx-auto">
+        <Marquee raf={contentRef} />
+      </div>
     </div>
   );
 };
