@@ -5,7 +5,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 const ProjectCard = ({ name, description, techStack, live, img }) => {
   return (
     <div className="card-border">
-      <div className="w-[25rem] h-[33rem] flex flex-col justify-between rounded-[1rem] overflow-hidden bg-back">
+      <div className="w-[20rem] h-[30rem] 2xl:w-[25rem] 2xl:h-[33rem] flex flex-col justify-between rounded-[1rem] overflow-hidden bg-back">
         <Image
           src={img}
           alt={name}

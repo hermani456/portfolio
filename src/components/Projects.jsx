@@ -56,7 +56,7 @@ const Projects = () => {
           <Header>Projects</Header>
         </div>
         <div
-          className="flex flex-wrap justify-center gap-10 mt-10"
+          className="flex flex-wrap justify-around gap-10 mt-10"
           ref={projectsRef}
         >
           {projects.map((project) => (
