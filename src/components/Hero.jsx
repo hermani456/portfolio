@@ -84,7 +84,7 @@ const Hero = () => {
                 Diego Campuzano
               </span>
             </h1>
-            <p className="text-white mt-5 font-exo">
+            <p className="text-white mt-5 font-exo selection:bg-sec/70">
               A web developer with a passion for creating intuitive,
               user-friendly interfaces and developing reliable, full-stack
               applications. Let&apos;s turn ideas into reality.

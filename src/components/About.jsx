@@ -17,7 +17,7 @@ const About = () => {
           <Header>About Me</Header>
         </div>
         <div className="mt-10 lg:mt-0" ref={contentRef}>
-          <p className="text-white lg:text-lg font-exo">
+          <p className="text-white lg:text-lg font-exo selection:bg-pri/70">
             I&apos;m a passionate{" "}
             <span className="text-sec text-xl font-semibold">
               web developer
