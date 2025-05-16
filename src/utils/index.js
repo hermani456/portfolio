@@ -135,7 +135,7 @@ export const projects = [
     techStack: ["NextJS", "TailwindCSS", "PostgreSQL", "ReactJS", "Resend", "React Email", "React PDF"],
     github: "https://github.com/hermani456/wedding",
     live: "https://mariaydiego.yme.cl",
-    img: wedding,
+    img: "https://portfolio-container-bucket.s3.us-east-1.amazonaws.com/wedding.webp",
   },
   {
     id: 2,
@@ -144,7 +144,7 @@ export const projects = [
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
     github: "https://github.com/hermani456/willka-next",
     live: "https://willko.diegocampuzano.me",
-    img: wilko,
+    img: "https://portfolio-container-bucket.s3.us-east-1.amazonaws.com/wilko.webp",
   },
   {
     id: 3,
@@ -153,7 +153,7 @@ export const projects = [
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
     github: "https://github.com/hermani456/yme",
     live: "https://www.yme.cl",
-    img: yme,
+    img: "https://portfolio-container-bucket.s3.us-east-1.amazonaws.com/yme.webp",
   },
 
 ]

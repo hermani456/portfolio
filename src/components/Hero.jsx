@@ -111,7 +111,7 @@ const Hero = () => {
           </div>
           <div ref={imgRef} className="opacity-0">
             <Image
-              src={doggy}
+              src={"https://portfolio-container-bucket.s3.us-east-1.amazonaws.com/doggy.webp"}
               alt="An image of a guy coding with his dog beside him"
               width={500}
               height={500}
