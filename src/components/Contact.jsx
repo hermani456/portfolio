@@ -48,7 +48,7 @@ const Contact = () => {
           setLoading(false);
           e.target.reset();
           setSentMessageStatus(
-            "here was an error sending your message. Please try again later."
+            "There was an error sending your message. Please try again later."
           );
           setTimeout(() => {
             setSentMessageStatus("");
