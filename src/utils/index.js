@@ -134,7 +134,7 @@ export const projects = [
     description: "A wedding RSVP app that allows guests to respond to wedding invitations. Upon successful RSVP, guests receive both an email and a PDF invitation.",
     techStack: ["NextJS", "TailwindCSS", "PostgreSQL", "ReactJS", "Resend", "React Email", "React PDF"],
     github: "https://github.com/hermani456/wedding",
-    live: "https://mariaydiego.yme.cl",
+    live: "https://weddingrsvp.diegocampuzano.me/",
     img: wedding,
   },
   {
@@ -152,7 +152,7 @@ export const projects = [
     description: "A web page for a recruitment agency that enables users to upload their CVs easily.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
     github: "https://github.com/hermani456/yme",
-    live: "https://www.yme.cl",
+    live: "https://yme.diegocampuzano.me/",
     img: yme,
   },
 
