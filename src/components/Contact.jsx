@@ -39,7 +39,7 @@ const Contact = () => {
         (result) => {
           setLoading(false);
           e.target.reset();
-          setSentMessageStatus("Your message has been sent successfully!");
+          setSentMessageStatus("Message sent successfully. Thank you!");
           setTimeout(() => {
             setSentMessageStatus("");
           }, 5000);
