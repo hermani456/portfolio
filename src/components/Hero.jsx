@@ -85,9 +85,10 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-white mt-5 font-exo selection:bg-sec/70">
-              A web developer with a passion for creating intuitive,
-              user-friendly interfaces and developing reliable, full-stack
-              applications. Let&apos;s turn ideas into reality.
+              A web developer who enjoys building interfaces that feel natural
+              to use and applications that work reliably behind the scenes. I
+              like taking an idea and figuring out how to make it real—both
+              visually and technically.
             </p>
             <div className="flex mt-5 gap-5 w-fit py-2 lg:py-4">
               {socialLinks.map((item) => (

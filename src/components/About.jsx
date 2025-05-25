@@ -18,24 +18,29 @@ const About = () => {
         </div>
         <div className="mt-10 lg:mt-0" ref={contentRef}>
           <p className="text-white lg:text-lg font-exo selection:bg-pri/70">
-            I&apos;m a passionate{" "}
+            I&apos;m a{" "}
             <span className="text-sec text-xl font-semibold">
               web developer
             </span>{" "}
-            with a strong focus on both{" "}
-            <span className="text-sec text-xl font-semibold">front-end</span>{" "}
-            and full-stack development. In 2021, I completed a 6-month bootcamp
-            for full-stack development, where I honed my skills in building
-            dynamic and responsive applications. Currently, I am studying
-            Computer Science, further deepening my understanding of software
-            development. I enjoy creating beautiful and intuitive interfaces, as
-            well as building functional,{" "}
+            who enjoys turning ideas into functional, user-friendly applications. In 2021, I completed an intensive 6-month{" "}
             <span className="text-sec text-xl font-semibold">
-              full-stack applications
+              full-stack development
             </span>{" "}
-            that solve real-world problems. With a keen eye for design and a
-            love for efficient code, I strive to create seamless user
-            experiences.
+            bootcamp, where I built real projects and developed a solid foundation in both front-end and back-end technologies. 
+            I also hold a degree in{" "}
+            <span className="text-sec text-xl font-semibold">
+              Programming Analyst
+            </span>
+            , which gave me a structured understanding of how software works under the hood. 
+            Currently, I&apos;m studying{" "}
+            <span className="text-sec text-xl font-semibold">
+              Computer Science
+            </span>{" "}
+            to strengthen that foundation and expand my skills. I like building things that not only work well but are also{" "}
+            <span className="text-sec text-xl font-semibold">
+              easy to use and visually clear
+            </span>
+            . Whether I&apos;m designing an interface or working on the backend logic, I care about making the experience smooth and practical for real users.
           </p>
         </div>
       </div>
