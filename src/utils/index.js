@@ -7,6 +7,7 @@ import {
   FaHtml5,
   FaCss3Alt,
 } from "react-icons/fa";
+import { SiFrontendmentor } from "react-icons/si";
 import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
 import { SiPostgresql, SiTypescript, SiExpo } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
@@ -61,9 +62,9 @@ export const socialLinks = [
   },
   {
     id: 3,
-    name: "Instagram",
-    path: "https://www.instagram.com/hermani456/",
-    icon: FaInstagram,
+    name: "Frontend Mentor",
+    path: "https://www.frontendmentor.io/profile/hermani456",
+    icon: SiFrontendmentor,
   },
 ];
 
