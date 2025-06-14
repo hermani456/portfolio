@@ -132,24 +132,6 @@ export const stackList = [
 export const projects = [
   {
     id: 1,
-    name: "Wedding RSVP",
-    description:
-      "A wedding RSVP app that allows guests to respond to wedding invitations. Upon successful RSVP, guests receive both an email and a PDF invitation.",
-    techStack: [
-      "NextJS",
-      "TailwindCSS",
-      "PostgreSQL",
-      "ReactJS",
-      "Resend",
-      "React Email",
-      "React PDF",
-    ],
-    github: "https://github.com/hermani456/wedding",
-    live: "https://weddingrsvp.diegocampuzano.me/",
-    img: wedding,
-  },
-  {
-    id: 2,
     name: "Liquid App",
     description:
       "A web app that allows users to create and manage payrolls, including the ability to create companies, employees, and payrolls. It also includes a feature to send payslips via email.",
@@ -165,6 +147,24 @@ export const projects = [
     github: "https://github.com/hermani456/liquidapp",
     live: "https://liquidapp.diegocampuzano.me/",
     img: liquidapp,
+  },
+  {
+    id: 2,
+    name: "Wedding RSVP",
+    description:
+      "A wedding RSVP app that allows guests to respond to wedding invitations. Upon successful RSVP, guests receive both an email and a PDF invitation.",
+    techStack: [
+      "NextJS",
+      "TailwindCSS",
+      "PostgreSQL",
+      "ReactJS",
+      "Resend",
+      "React Email",
+      "React PDF",
+    ],
+    github: "https://github.com/hermani456/wedding",
+    live: "https://weddingrsvp.diegocampuzano.me/",
+    img: wedding,
   },
   {
     id: 3,
