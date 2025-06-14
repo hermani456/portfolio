@@ -11,7 +11,7 @@ const ProjectCard = ({ name, description, techStack, live, img }) => {
           alt={name}
           width={400}
           height={200}
-          className="pointer-events-none filter grayscale-[70%] object-contain"
+          className="pointer-events-none filter grayscale-[50%] object-contain"
         />
         <div className="px-2">
           <h3 className="text-sec font-orbitron text-xl sm:text-2xl font-semibold">
