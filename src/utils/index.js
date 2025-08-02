@@ -145,7 +145,7 @@ export const projects = [
       "React Email",
     ],
     github: "https://github.com/hermani456/liquidapp",
-    live: "https://liquidapp.diegocampuzano.me/",
+    live: "https://liquidapp.diegocampuzano.dev/",
     img: liquidapp,
   },
   {
@@ -163,7 +163,7 @@ export const projects = [
       "React PDF",
     ],
     github: "https://github.com/hermani456/wedding",
-    live: "https://weddingrsvp.diegocampuzano.me/",
+    live: "https://weddingrsvp.diegocampuzano.dev/",
     img: wedding,
   },
   {
@@ -173,7 +173,7 @@ export const projects = [
       "A web page highlighting the diverse range of services offered by the company.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
     github: "https://github.com/hermani456/willka-next",
-    live: "https://willko.diegocampuzano.me",
+    live: "https://willko.diegocampuzano.dev",
     img: wilko,
   },
   {
@@ -183,7 +183,7 @@ export const projects = [
       "A web page for a recruitment agency that enables users to upload their CVs easily.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
     github: "https://github.com/hermani456/yme",
-    live: "https://yme.diegocampuzano.me/",
+    live: "https://yme.diegocampuzano.dev/",
     img: yme,
   },
 ];
