@@ -20,6 +20,7 @@ import wedding from "@/app/img/wedding.webp";
 import wilko from "@/app/img/wilko.webp";
 import yme from "@/app/img/yme.webp";
 import liquidapp from "@/app/img/liquidapp.png";
+import converter from "@/app/img/converter.webp";
 
 export const navLinks = [
   {
@@ -130,6 +131,23 @@ export const stackList = [
 
 // projects
 export const projects = [
+  {
+    id: 5,
+    name: "Media Forge",
+    description:
+      "A high-performance, serverless media converter running entirely in the browser. Powered by WebAssembly and multi-threaded Web Workers to process video, audio, and images offline with zero server latency.",
+    techStack: [
+      "ReactJS",
+      "TypeScript",
+      "Vite",
+      "FFmpeg.wasm",
+      "Web Workers",
+      "TailwindCSS",
+    ],
+    github: "https://github.com/hermani456/wasm-media-converter",
+    live: "https://mediaforge.diegocampuzano.dev/",
+    img: converter,
+  },
   {
     id: 1,
     name: "Liquid App",

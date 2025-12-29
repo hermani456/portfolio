@@ -37,9 +37,10 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${orbitron.variable} ${exo.variable} antialiased bg-back`}
+        suppressHydrationWarning
       >
         {children}
         <Analytics />
