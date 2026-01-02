@@ -52,6 +52,20 @@
   transition: color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
+.btno {
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  color: var(--neon-pink);
+  border: var(--neon-pink) 0.125rem solid;
+  padding: 0.5rem 1rem;
+  /* full */
+  border-radius: 9999px;
+  text-shadow: 0 0 0.25rem var(--neon-pink), 0 0 10px var(--neon-pink);
+  box-shadow: inset 0 0 0.25rem var(--neon-pink), 0 0 0.5rem var(--neon-pink);
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
 .text-shadow:hover {
   text-shadow: 0 0 0.25rem var(--neon-blue), 0 0 10px var(--neon-blue);
 }

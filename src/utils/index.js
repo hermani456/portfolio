@@ -21,6 +21,7 @@ import wilko from "@/app/img/wilko.webp";
 import yme from "@/app/img/yme.webp";
 import liquidapp from "@/app/img/liquidapp.png";
 import converter from "@/app/img/converter.webp";
+import trafalgar from "@/app/img/trafalgar.webp";
 
 export const navLinks = [
   {
@@ -134,6 +135,7 @@ export const projects = [
   {
     id: 5,
     name: "Media Forge",
+    category: "frontend",
     description:
       "A high-performance, serverless media converter running entirely in the browser. Powered by WebAssembly and multi-threaded Web Workers to process video, audio, and images offline with zero server latency.",
     techStack: [
@@ -151,6 +153,7 @@ export const projects = [
   {
     id: 1,
     name: "Liquid App",
+    category: "fullstack",
     description:
       "A web app that allows users to create and manage payrolls, including the ability to create companies, employees, and payrolls. It also includes a feature to send payslips via email.",
     techStack: [
@@ -169,6 +172,7 @@ export const projects = [
   {
     id: 2,
     name: "Wedding RSVP",
+    category: "fullstack",
     description:
       "A wedding RSVP app that allows guests to respond to wedding invitations. Upon successful RSVP, guests receive both an email and a PDF invitation.",
     techStack: [
@@ -187,6 +191,7 @@ export const projects = [
   {
     id: 3,
     name: "A Company Services Web Page",
+    category: "frontend",
     description:
       "A web page highlighting the diverse range of services offered by the company.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
@@ -197,11 +202,29 @@ export const projects = [
   {
     id: 4,
     name: "Web Page for a Recruitment Agency",
+    category: "frontend",
     description:
       "A web page for a recruitment agency that enables users to upload their CVs easily.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
     github: "https://github.com/hermani456/yme",
     live: "https://yme.diegocampuzano.dev/",
     img: yme,
+  },
+  {
+    id: 6,
+    name: "Trafalgar Landing Page",
+    category: "ui",
+    description:
+      "A implementation of a Figma design for a digital healthcare platform. Focuses on responsive layout strategies, clean component structure, and faithful reproduction of the original UI typography and spacing.",
+    techStack: [
+      "ReactJS",
+      "TailwindCSS",
+      "Figma",
+      "Vite",
+    ],
+    github:
+      "https://github.com/hermani456/figma-to-code/tree/master/trafalgar-landing-page",
+    live: "https://figma-to-code-seven.vercel.app/",
+    img: trafalgar,
   },
 ];
