@@ -137,7 +137,7 @@ export const projects = [
     name: "Media Forge",
     category: "frontend",
     description:
-      "A high-performance, serverless media converter running entirely in the browser. Powered by WebAssembly and multi-threaded Web Workers to process video, audio, and images offline with zero server latency.",
+      "A serverless media converter running entirely in the browser. Powered by WebAssembly and multi-threaded Web Workers to process video, audio, and images offline with zero server latency.",
     techStack: [
       "ReactJS",
       "TypeScript",
