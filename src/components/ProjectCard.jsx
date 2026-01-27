@@ -4,13 +4,13 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const ProjectCard = ({ name, description, techStack, live, github, img }) => {
   return (
-    <div className="group relative flex flex-col justify-between w-full max-w-sm mx-auto overflow-hidden rounded-2xl glass-panel transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-mocha-mauve/10">
+    <div className="group relative flex flex-col justify-between w-full max-w-sm mx-auto overflow-hidden rounded-2xl glass-panel">
       <div className="h-48 overflow-hidden relative">
         <Image
           src={img}
           alt={name}
           fill
-          className="object-fit transition-transform duration-700 group-hover:scale-110 group-hover:contrast-105"
+          className="object-fit transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-linear-to-t from-mocha-base to-transparent opacity-60"></div>
       </div>
