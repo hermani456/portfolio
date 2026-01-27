@@ -1,6 +1,6 @@
 const Header = ({ children }) => {
   return (
-    <h2 className="text-3xl lg:text-5xl font-orbitron font-semibold text-sec/80">
+    <h2 className="text-3xl lg:text-5xl font-orbitron font-semibold text-mocha-text">
       {children}
     </h2>
   );

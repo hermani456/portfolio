@@ -6,12 +6,12 @@ import {
   FaNodeJs,
   FaHtml5,
   FaCss3Alt,
+  FaJs,
+  FaNode,
+  FaGitAlt,
 } from "react-icons/fa";
-import { SiFrontendmentor } from "react-icons/si";
-import { RiTailwindCssFill, RiNextjsFill } from "react-icons/ri";
-import { SiPostgresql, SiTypescript, SiExpo } from "react-icons/si";
-import { IoLogoJavascript } from "react-icons/io5";
-import { TbBrandReactNative } from "react-icons/tb";
+import { SiFrontendmentor, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import { SiPostgresql, SiTypescript } from "react-icons/si";
 import { IoMdHome } from "react-icons/io";
 import { FaProjectDiagram } from "react-icons/fa";
 import { FaInfoCircle } from "react-icons/fa";
@@ -72,62 +72,18 @@ export const socialLinks = [
 ];
 
 // technogy, tools, and libraries i know
-export const stackList = [
-  {
-    id: 1,
-    name: "TailwindCSS",
-    icon: RiTailwindCssFill,
-  },
-  {
-    id: 2,
-    name: "ReactJS",
-    icon: FaReact,
-  },
-  {
-    id: 3,
-    name: "NextJS",
-    icon: RiNextjsFill,
-  },
-  {
-    id: 4,
-    name: "NodeJS",
-    icon: FaNodeJs,
-  },
-  {
-    id: 9,
-    name: "TypeScript",
-    icon: SiTypescript,
-  },
-  {
-    id: 10,
-    name: "JavaScript",
-    icon: IoLogoJavascript,
-  },
-  {
-    id: 11,
-    name: "HTML5",
-    icon: FaHtml5,
-  },
-  {
-    id: 12,
-    name: "CSS3",
-    icon: FaCss3Alt,
-  },
-  {
-    id: 14,
-    name: "PostgreSQL",
-    icon: SiPostgresql,
-  },
-  {
-    id: 15,
-    name: "React Native",
-    icon: TbBrandReactNative,
-  },
-  {
-    id: 16,
-    name: "Expo",
-    icon: SiExpo,
-  },
+export const skillData = [
+  { name: "React", icon: FaReact, color: "text-mocha-blue", border: "border-mocha-blue" },
+  { name: "Next.js", icon: SiNextdotjs, color: "text-mocha-text", border: "border-mocha-text" },
+  { name: "TypeScript", icon: SiTypescript, color: "text-mocha-blue", border: "border-mocha-blue" },
+  { name: "JavaScript", icon: FaJs, color: "text-mocha-yellow", border: "border-mocha-yellow" },
+  { name: "Tailwind", icon: SiTailwindcss, color: "text-mocha-sky", border: "border-mocha-sky" },
+  { name: "Node.js", icon: FaNode, color: "text-mocha-green", border: "border-mocha-green" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "text-mocha-sapphire", border: "border-mocha-sapphire" },
+  { name: "MongoDB", icon: SiMongodb, color: "text-mocha-green", border: "border-mocha-green" },
+  { name: "HTML5", icon: FaHtml5, color: "text-mocha-peach", border: "border-mocha-peach" },
+  { name: "CSS3", icon: FaCss3Alt, color: "text-mocha-blue", border: "border-mocha-blue" },
+  { name: "Git", icon: FaGitAlt, color: "text-mocha-red", border: "border-mocha-red" },
 ];
 
 // projects

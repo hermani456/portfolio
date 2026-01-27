@@ -1,7 +1,7 @@
 "use client";
 import Container from "./Container";
 import Image from "next/image";
-import doggy from "@/app/img/doggy.webp";
+import doggy from "@/app/img/doggy_mocha.webp";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -19,36 +19,19 @@ const Hero = () => {
   const imgRef = useRef();
 
   useGSAP(() => {
-    const createNeonEffect = (element) => {
-      gsap.to(element, {
-        textShadow:
-          "0 0 5px #f53fa1, 0 0 10px #f53fa1, 0 0 20px #f53fa1, 0 0 40px #f53fa1, 0 0 80px #f53fa1",
-        opacity: 1,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        repeatDelay: 0.5,
-      });
-    };
-
-    if (blueTextRef.current) {
-      createNeonEffect(blueTextRef.current);
-    }
-
     gsap.to(titleRef.current, {
       opacity: 1,
     });
 
     gsap.from(titleRef.current.children, {
-      y: 50,
+      y: 30,
       opacity: 0,
-      duration: 1,
-      delay: 0.5,
+      duration: 0.8,
+      delay: 0.2,
       stagger: {
-        amount: 0.5,
+        amount: 0.3,
       },
-      ease: "back.inOut",
+      ease: "power2.out",
     });
 
     gsap.to(imgRef.current, {
@@ -56,41 +39,38 @@ const Hero = () => {
     });
 
     gsap.from(imgRef.current.children, {
-      y: 50,
+      y: 30,
       opacity: 0,
-      duration: 1,
-      delay: 0.5,
-      ease: "back.inOut",
+      duration: 0.8,
+      delay: 0.2,
+      ease: "power2.out",
     });
   }, []);
   return (
     <>
       <div className="-z-10">
-        <div className="absolute w-[20rem] lg:w-[40rem] h-[20rem] lg:h-[40rem] radial-gradient rounded-full -top-[20%] -left-[7%]"></div>
-        <div className="absolute w-[8rem] h-screen bg-acc/20 blur-xl top-0 right-[10%]"></div>
-        <div className="absolute w-[4rem] h-screen bg-acc/20 blur-xl top-0 right-[30%]"></div>
-        <div className="absolute w-[4rem] h-screen bg-acc/20 blur-xl top-0 right-[40%]"></div>
+        <div className="absolute w-[20rem] lg:w-160 h-80 lg:h-160 radial-gradient rounded-full -top-[20%] -left-[7%] opacity-20"></div>
       </div>
       <Container id="home">
         <div className="flex flex-col lg:flex-row justify-around items-center min-h-[calc(100dvh-5rem)] relative ">
           <div ref={titleRef} className="opacity-0">
             <Terminal />
-            <h1 className="text-white text-4xl lg:text-6xl font-orbitron font-semibold mt-5">
-              <span className="neon-text-pink flicker" ref={pinkTextRef}>
+            <h1 className="text-mocha-text text-4xl lg:text-6xl font-orbitron font-semibold mt-8 leading-tight">
+              <span className="text-mocha-lavender" ref={pinkTextRef}>
                 Hi, I&apos;m{" "}
               </span>{" "}
               <br />{" "}
-              <span className="neon-text-blue" ref={blueTextRef}>
+              <span className="text-mocha-green" ref={blueTextRef}>
                 Diego Campuzano
               </span>
             </h1>
-            <p className="text-white mt-5 font-exo selection:bg-sec/70">
+            <p className="text-mocha-subtext0 mt-5 font-exo text-lg leading-relaxed max-w-xl">
               A web developer who enjoys building interfaces that feel natural
               to use and applications that work reliably behind the scenes. I
               like taking an idea and figuring out how to make it real—both
               visually and technically.
             </p>
-            <div className="flex mt-5 gap-5 w-fit py-2 lg:py-4">
+            <div className="flex mt-8 gap-5 w-fit">
               {socialLinks.map((item) => (
                 <SocialIcon
                   key={item.id}
@@ -100,13 +80,12 @@ const Hero = () => {
                 />
               ))}
             </div>
-            <div className="my-5 relative">
+            <div className="my-8">
               <button
-                className="btn font-orbitron"
+                className="btn font-orbitron text-mocha-text hover:text-mocha-base"
                 onClick={() => lenis?.scrollTo("#contact")}
               >
-                Contact Me
-                <div className="absolute w-20 h-20 bg-sec/30 blur-3xl pointer-events-none"></div>
+                Let&apos;s Talk
               </button>
             </div>
           </div>
@@ -116,7 +95,8 @@ const Hero = () => {
               alt="An image of a guy coding with his dog beside him"
               width={500}
               height={500}
-              className="pointer-events-none mb-10"
+              className="pointer-events-none mb-10 drop-shadow-2xl"
+              priority
             />
           </div>
         </div>

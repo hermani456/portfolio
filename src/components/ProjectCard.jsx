@@ -4,49 +4,56 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const ProjectCard = ({ name, description, techStack, live, github, img }) => {
   return (
-    <div className="card-border">
-      <div className="w-[20rem] h-[30rem] 2xl:w-[25rem] 2xl:h-[33rem] flex flex-col justify-between rounded-[1rem] overflow-hidden bg-back">
+    <div className="group relative flex flex-col justify-between w-full max-w-sm mx-auto overflow-hidden rounded-2xl glass-panel transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-mocha-mauve/10">
+      <div className="h-48 overflow-hidden relative">
         <Image
           src={img}
           alt={name}
-          width={400}
-          height={200}
-          className="pointer-events-none filter grayscale-[50%] object-contain"
+          fill
+          className="object-fit transition-transform duration-700 group-hover:scale-110 group-hover:contrast-105"
         />
-        <div className="px-5 -mt-2">
-          <h3 className="text-sec font-orbitron text-xl sm:text-2xl font-semibold">
+        <div className="absolute inset-0 bg-linear-to-t from-mocha-base to-transparent opacity-60"></div>
+      </div>
+
+      <div className="p-6 flex flex-col gap-4">
+        <div>
+          <h3 className="text-mocha-mauve font-orbitron text-xl font-bold mb-2">
             {name}
           </h3>
-          <p className="text-white font-exo text-sm lg:text-md">
+          <p className="text-mocha-text font-exo text-sm leading-relaxed line-clamp-3">
             {description}
           </p>
         </div>
-        <div className="flex gap-2 flex-wrap px-5">
-          <span className="sr-only">Tech stack for this project</span>
+
+        <div className="flex flex-wrap gap-2 my-2">
           {techStack?.map((tech) => (
             <span
               key={tech}
-              className="text-white/80 bg-acc/50 px-2 py-1 rounded-md text-xs md:text-sm font-exo"
+              className="tag-pill text-xs px-3 py-1 bg-mocha-surface1/50 border-mocha-surface2"
             >
               {tech}
             </span>
           ))}
         </div>
-       <div className="flex justify-between items-center px-5 pb-5 gap-3">
-          <Link href={live} target="_blank" className="btn font-orbitron">
-            <div className="flex justify-center items-center gap-2">
-              <FaExternalLinkAlt className="w-3 lg:w-4" />
-              <span className="text-sm lg:text-md">Visit Site</span>
-            </div>
+
+        <div className="flex items-center justify-between pt-4 mt-auto border-t border-mocha-overlay0/20">
+          <Link 
+            href={live} 
+            target="_blank" 
+            className="flex items-center gap-2 text-mocha-blue font-semibold text-sm hover:underline hover:text-mocha-blue transition-colors"
+          >
+            <FaExternalLinkAlt className="size-3" />
+            Live Demo
           </Link>
 
           {github && (
             <Link 
               href={github} 
               target="_blank" 
-              className="border border-white/20 hover:border-white/80 hover:bg-white/10 transition-all duration-300 rounded-md px-3 flex items-center justify-center h-full"
+              className="flex items-center gap-2 text-mocha-subtext0 text-sm hover:text-mocha-text transition-colors"
             >
-              <FaGithub className="size-5 fill-white" />
+              <FaGithub className="size-4" />
+              Source Code
             </Link>
           )}
         </div>
