@@ -20,7 +20,7 @@ const ProjectCard = ({ name, description, techStack, live, github, img }) => {
           <h3 className="text-mocha-mauve font-orbitron text-xl font-bold mb-2">
             {name}
           </h3>
-          <p className="text-mocha-text font-exo text-sm leading-relaxed line-clamp-3">
+          <p className="text-mocha-text font-exo text-sm leading-relaxed line-clamp-5">
             {description}
           </p>
         </div>

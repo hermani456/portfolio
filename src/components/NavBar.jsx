@@ -81,7 +81,7 @@ export default function Component() {
           <SheetTrigger asChild>
             <Button
               size="icon"
-              className="lg:hidden bg-mocha-surface0 text-mocha-mauve border border-mocha-overlay0 hover:bg-mocha-surface1 transition-all"
+              className="lg:hidden bg-mocha-surface0 text-mocha-mauve opacity-0"
               ref={iconRef}
             >
               <MenuIcon className="h-6 w-6 text-mocha-mauve" />
@@ -95,14 +95,16 @@ export default function Component() {
             <SheetTitle className="text-mocha-text text-xl font-orbitron text-left mb-4">
               Navigation
             </SheetTitle>
-            <SheetDescription className="hidden">Mobile navigation menu</SheetDescription>
+            <SheetDescription className="hidden">
+              Mobile navigation menu
+            </SheetDescription>
             <div className="grid gap-4 py-6">
               {navLinks.map((link) => (
                 <SheetClose asChild key={link.id}>
-                  <div className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-mocha-surface0 transition-colors group cursor-pointer">
-                    <link.icon className="h-5 w-5 fill-mocha-sky group-hover:fill-mocha-mauve transition-colors" />
+                  <div className="flex items-center gap-4 px-4 py-3 rounded-lg">
+                    <link.icon className="h-5 w-5 fill-mocha-sky" />
                     <button
-                      className="flex w-full items-center text-lg text-mocha-text font-exo group-hover:text-mocha-mauve transition-colors text-left"
+                      className="flex w-full items-center text-lg text-mocha-text font-exo text-left"
                       onClick={() => lenis?.scrollTo(link.path)}
                     >
                       {link.name}
@@ -130,7 +132,13 @@ export default function Component() {
               ))}
             </div>
             {/* <DoggoFace className="size-16" /> */}
-            <Image src={dc} alt="dc" width={40} height={40} className="pointer-events-none opacity-80 hover:opacity-100 transition-opacity"/>
+            <Image
+              src={dc}
+              alt="dc"
+              width={40}
+              height={40}
+              className="pointer-events-none opacity-80 hover:opacity-100 transition-opacity"
+            />
             <div className="flex gap-5">
               {navLinks.slice(2).map((link) => (
                 <button
@@ -211,7 +219,11 @@ const Logo = () => {
         className="cls-1"
         d="M62.09,61.53c4.15-5.12,12.59-3.79,15.11-2.92a21.43,21.43,0,0,1,7.09,4.42c7.63,7.1,5.26,19.28.18,24.36-9.15,9.15-20.94.89-22.38-2.92C60,82,60.19,63.88,62.09,61.53Z"
         id="path4"
-        style={{ stroke: "var(--mocha-pink)", strokeOpacity: 1, fill: "var(--mocha-pink)" }}
+        style={{
+          stroke: "var(--mocha-pink)",
+          strokeOpacity: 1,
+          fill: "var(--mocha-pink)",
+        }}
       />
       <path
         className="cls-4"
@@ -253,13 +265,21 @@ const Logo = () => {
         className="cls-6"
         d="M51,69.57s3.83,6.17,11.33,6.17,10.17-5.5,10.17-5.5"
         id="path9"
-        style={{ stroke: "var(--mocha-pink)", strokeOpacity: 1, fill: "var(--mocha-pink)" }}
+        style={{
+          stroke: "var(--mocha-pink)",
+          strokeOpacity: 1,
+          fill: "var(--mocha-pink)",
+        }}
       />
       <path
         className="cls-7"
         d="M61.34,103.52c-1.39-4.83,5.6-14.9,5.6-14.9-1.93-9.11-10.74-6.44-11,2a26.23,26.23,0,0,0,.6,5.32c.74,3.31,2.07,7.09,4.8,7.57Z"
         id="path10"
-        style={{ stroke: "var(--mocha-sky)", strokeOpacity: 1, fill: "var(--mocha-sky)" }}
+        style={{
+          stroke: "var(--mocha-sky)",
+          strokeOpacity: 1,
+          fill: "var(--mocha-sky)",
+        }}
       />
     </svg>
   );

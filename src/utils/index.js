@@ -10,7 +10,12 @@ import {
   FaNode,
   FaGitAlt,
 } from "react-icons/fa";
-import { SiFrontendmentor, SiMongodb, SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import {
+  SiFrontendmentor,
+  SiMongodb,
+  SiNextdotjs,
+  SiTailwindcss,
+} from "react-icons/si";
 import { SiPostgresql, SiTypescript } from "react-icons/si";
 import { IoMdHome } from "react-icons/io";
 import { FaProjectDiagram } from "react-icons/fa";
@@ -22,6 +27,7 @@ import yme from "@/app/img/yme.webp";
 import liquidapp from "@/app/img/liquidapp.png";
 import converter from "@/app/img/converter.webp";
 import trafalgar from "@/app/img/trafalgar.webp";
+import familyTask from "@/app/img/familytask.webp";
 
 export const navLinks = [
   {
@@ -73,21 +79,95 @@ export const socialLinks = [
 
 // technogy, tools, and libraries i know
 export const skillData = [
-  { name: "React", icon: FaReact, color: "text-mocha-blue", border: "border-mocha-blue" },
-  { name: "Next.js", icon: SiNextdotjs, color: "text-mocha-text", border: "border-mocha-text" },
-  { name: "TypeScript", icon: SiTypescript, color: "text-mocha-blue", border: "border-mocha-blue" },
-  { name: "JavaScript", icon: FaJs, color: "text-mocha-yellow", border: "border-mocha-yellow" },
-  { name: "Tailwind", icon: SiTailwindcss, color: "text-mocha-sky", border: "border-mocha-sky" },
-  { name: "Node.js", icon: FaNode, color: "text-mocha-green", border: "border-mocha-green" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "text-mocha-sapphire", border: "border-mocha-sapphire" },
-  { name: "MongoDB", icon: SiMongodb, color: "text-mocha-green", border: "border-mocha-green" },
-  { name: "HTML5", icon: FaHtml5, color: "text-mocha-peach", border: "border-mocha-peach" },
-  { name: "CSS3", icon: FaCss3Alt, color: "text-mocha-blue", border: "border-mocha-blue" },
-  { name: "Git", icon: FaGitAlt, color: "text-mocha-red", border: "border-mocha-red" },
+  {
+    name: "React",
+    icon: FaReact,
+    color: "text-mocha-blue",
+    border: "border-mocha-blue",
+  },
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+    color: "text-mocha-text",
+    border: "border-mocha-text",
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    color: "text-mocha-blue",
+    border: "border-mocha-blue",
+  },
+  {
+    name: "JavaScript",
+    icon: FaJs,
+    color: "text-mocha-yellow",
+    border: "border-mocha-yellow",
+  },
+  {
+    name: "Tailwind",
+    icon: SiTailwindcss,
+    color: "text-mocha-sky",
+    border: "border-mocha-sky",
+  },
+  {
+    name: "Node.js",
+    icon: FaNode,
+    color: "text-mocha-green",
+    border: "border-mocha-green",
+  },
+  {
+    name: "PostgreSQL",
+    icon: SiPostgresql,
+    color: "text-mocha-sapphire",
+    border: "border-mocha-sapphire",
+  },
+  {
+    name: "MongoDB",
+    icon: SiMongodb,
+    color: "text-mocha-green",
+    border: "border-mocha-green",
+  },
+  {
+    name: "HTML5",
+    icon: FaHtml5,
+    color: "text-mocha-peach",
+    border: "border-mocha-peach",
+  },
+  {
+    name: "CSS3",
+    icon: FaCss3Alt,
+    color: "text-mocha-blue",
+    border: "border-mocha-blue",
+  },
+  {
+    name: "Git",
+    icon: FaGitAlt,
+    color: "text-mocha-red",
+    border: "border-mocha-red",
+  },
 ];
 
 // projects
 export const projects = [
+  {
+    id: 7,
+    name: "FamilyTask",
+    category: "fullstack",
+    description:
+      "A gamified household management platform where children earn points by completing tasks to redeem rewards. Built as monorepo featuring role-based authentication, secure API communication, and automated Docker deployments.",
+    techStack: [
+      "ReactJS",
+      "Node.js",
+      "TypeScript",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Docker",
+      "TailwindCSS",
+    ],
+    github: "https://github.com/hermani456/family-task",
+    live: "https://familytask.diegocampuzano.dev/",
+    img: familyTask,
+  },
   {
     id: 5,
     name: "Media Forge",
@@ -172,12 +252,7 @@ export const projects = [
     category: "ui",
     description:
       "A implementation of a Figma design for a digital healthcare platform. Focuses on responsive layout strategies, clean component structure, and faithful reproduction of the original UI typography and spacing.",
-    techStack: [
-      "ReactJS",
-      "TailwindCSS",
-      "Figma",
-      "Vite",
-    ],
+    techStack: ["ReactJS", "TailwindCSS", "Figma", "Vite"],
     github:
       "https://github.com/hermani456/figma-to-code/tree/master/trafalgar-landing-page",
     live: "https://figma-to-code-seven.vercel.app/",

@@ -17,7 +17,7 @@ const About = () => {
           <Header>About Me</Header>
         </div>
         <div className="mt-10 lg:mt-0" ref={contentRef}>
-          <p className="text-mocha-subtext1 lg:text-lg font-exo selection:bg-pri/70">
+          <p className="text-mocha-subtext0 mt-5 font-exo text-lg leading-relaxed selection:bg-mocha-red/70">
             I&apos;m a{" "}
             <span className="text-mocha-peach text-xl font-semibold">
               web developer

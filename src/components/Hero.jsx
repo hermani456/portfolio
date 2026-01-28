@@ -1,7 +1,7 @@
 "use client";
 import Container from "./Container";
 import Image from "next/image";
-import doggy from "@/app/img/doggy_mocha.webp";
+import doggy from "@/app/img/doggy_mocha_transparent.webp";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
