@@ -30,16 +30,20 @@ export const metadata = {
 
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#612248' },
-    { media: '(prefers-color-scheme: dark)', color: '#612248' },
+    { media: '(prefers-color-scheme: light)', color: '#cba6f7' },
+    { media: '(prefers-color-scheme: dark)', color: '#cba6f7' },
   ],
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${orbitron.variable} ${exo.variable} antialiased bg-back`}
+        className={`${orbitron.variable} ${exo.variable} antialiased bg-base`}
         suppressHydrationWarning
       >
         {children}
