@@ -6,7 +6,7 @@ import { skillData } from "@/utils";
 const Skills = () => {
   const { containerRef, titleRef, contentRef } = useGsapAnimation();
   return (
-    <div className="mb-14 lg:mb-40 opacity-0" ref={containerRef}>
+    <div className="my-20 lg:mb-40 opacity-0" ref={containerRef}>
       <Container>
         <div ref={titleRef} className="flex flex-col items-center mb-10">
           <Header>Skills</Header>

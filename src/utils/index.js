@@ -1,14 +1,13 @@
 import {
   FaLinkedinIn,
   FaGithubAlt,
-  FaInstagram,
   FaReact,
-  FaNodeJs,
   FaHtml5,
   FaCss3Alt,
   FaJs,
   FaNode,
   FaGitAlt,
+  FaDocker,
 } from "react-icons/fa";
 import {
   SiFrontendmentor,
@@ -28,6 +27,7 @@ import liquidapp from "@/app/img/liquidapp.png";
 import converter from "@/app/img/converter.webp";
 import trafalgar from "@/app/img/trafalgar.webp";
 import familyTask from "@/app/img/familytask.webp";
+import { IoInfiniteSharp } from "react-icons/io5";
 
 export const navLinks = [
   {
@@ -144,6 +144,18 @@ export const skillData = [
     icon: FaGitAlt,
     color: "text-mocha-red",
     border: "border-mocha-red",
+  },
+  {
+    name: "Docker",
+    icon: FaDocker,
+    color: "text-mocha-blue",
+    border: "border-mocha-blue",
+  },
+  {
+    name: "CI/CD",
+    icon: IoInfiniteSharp,
+    color: "text-mocha-teal",
+    border: "border-mocha-teal",
   },
 ];
 
