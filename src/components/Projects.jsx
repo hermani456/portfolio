@@ -1,19 +1,18 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import Container from "./Container";
 import { projects } from "@/utils";
 import ProjectCard from "./ProjectCard";
 import Header from "./Header";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import useRevealOnScroll from "@/hooks/useRevealOnScroll";
-
-gsap.registerPlugin(useGSAP);
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
-  const isFirstRender = useRef(true);
+  // True until the grid has entered the viewport for the first time.
+  // Filter animations are suppressed until then.
+  const hasRevealedRef = useRef(false);
 
   const categories = [
     { name: "All", value: "all" },
@@ -27,34 +26,70 @@ const Projects = () => {
     return project.category === filter;
   });
 
-  const { containerRef, titleRef, contentRef } = useRevealOnScroll();
+  const { containerRef, titleRef } = useRevealOnScroll();
   const projectsRef = useRef(null);
 
-  // Filter animation — only runs on user-initiated filter changes, not on first render.
-  // On first render, CSS reveal-children handles the scroll-in animation.
-  useGSAP(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
+  // Shared stagger animation for both initial reveal and filter changes.
+  const animateCards = useCallback(() => {
+    const grid = projectsRef.current;
+    if (!grid || !grid.children.length) return;
 
+    gsap.killTweensOf(grid.children);
     gsap.fromTo(
-      projectsRef.current.children,
+      grid.children,
       { y: 20, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 0.5,
-        stagger: 0.1,
+        duration: 0.45,
+        stagger: 0.08,
         ease: "power2.out",
+        clearProps: "opacity,transform",
       }
     );
-  }, [filter]);
+  }, []);
+
+  // Pre-hide cards before the first browser paint so the scroll-in animation
+  // has a clean starting state. useLayoutEffect runs before paint (unlike useEffect),
+  // eliminating the flash-then-snap that occurs when cards are briefly visible
+  // before the IntersectionObserver fires and GSAP snaps them to opacity:0.
+  useLayoutEffect(() => {
+    const grid = projectsRef.current;
+    if (!grid || !grid.children.length) return;
+    gsap.set(grid.children, { opacity: 0, y: 20 });
+  }, []);
+
+  // Initial scroll-in: fire the stagger animation once when the grid enters
+  // the viewport.
+  useEffect(() => {
+    const grid = projectsRef.current;
+    if (!grid) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          hasRevealedRef.current = true;
+          animateCards();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    observer.observe(grid);
+    return () => observer.disconnect();
+  }, [animateCards]);
+
+  // Filter animation — only runs after the initial viewport reveal has fired.
+  useEffect(() => {
+    if (!hasRevealedRef.current) return;
+    animateCards();
+  }, [filter, animateCards]);
 
   return (
     <Container id="projects">
       <div className="mb-14 lg:mb-40 reveal" ref={containerRef}>
-        
+
         <div ref={titleRef} className="text-center mb-10 reveal">
           <Header>Projects</Header>
           <p className="text-mocha-subtext0 mt-4 max-w-2xl mx-auto font-exo">
@@ -79,11 +114,8 @@ const Projects = () => {
         </div>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-children"
-          ref={(el) => {
-            projectsRef.current = el;
-            contentRef.current = el;
-          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          ref={projectsRef}
         >
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} {...project} />
@@ -103,4 +135,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
