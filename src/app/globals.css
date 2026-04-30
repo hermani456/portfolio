@@ -86,6 +86,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--mocha-base);
     color: var(--mocha-text);
@@ -134,8 +138,8 @@
 /* Glass Panel Utility */
 .glass-panel {
   background: rgba(49, 50, 68, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(166, 173, 200, 0.1);
   border-radius: 1rem;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -220,24 +224,57 @@ p {
   text-wrap: pretty;
 }
 
-html.lenis,
-html.lenis body {
-  height: auto;
+/* Hardware-accelerated scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 2rem, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+.reveal.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+/* Staggered children reveal */
+.reveal-children > * {
+  opacity: 0;
+  transform: translate3d(0, 2rem, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.lenis.lenis-stopped {
-  overflow: hidden;
+.reveal-children.visible > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
+/* Stagger delay for children */
+.reveal-children.visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-children.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-children.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-children.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-children.visible > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-children.visible > *:nth-child(6) { transition-delay: 0.40s; }
+.reveal-children.visible > *:nth-child(7) { transition-delay: 0.48s; }
+.reveal-children.visible > *:nth-child(8) { transition-delay: 0.56s; }
+.reveal-children.visible > *:nth-child(9) { transition-delay: 0.64s; }
+.reveal-children.visible > *:nth-child(10) { transition-delay: 0.72s; }
+.reveal-children.visible > *:nth-child(11) { transition-delay: 0.80s; }
+.reveal-children.visible > *:nth-child(12) { transition-delay: 0.88s; }
+.reveal-children.visible > *:nth-child(13) { transition-delay: 0.96s; }
+
+/* Fixed navbar GPU hint */
+.nav-fixed {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-hidden {
+  transform: translate3d(0, -100px, 0);
 }
 

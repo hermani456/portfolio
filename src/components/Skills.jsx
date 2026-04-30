@@ -1,14 +1,15 @@
+"use client";
 import Container from "./Container";
-import useGsapAnimation from "@/hooks/useGsapAnimation";
+import useRevealOnScroll from "@/hooks/useRevealOnScroll";
 import Header from "./Header";
 import { skillData } from "@/utils";
 
 const Skills = () => {
-  const { containerRef, titleRef, contentRef } = useGsapAnimation();
+  const { containerRef, titleRef, contentRef } = useRevealOnScroll();
   return (
-    <div className="my-20 lg:mb-40 opacity-0" ref={containerRef}>
+    <div className="my-20 lg:mb-40 reveal" ref={containerRef}>
       <Container>
-        <div ref={titleRef} className="flex flex-col items-center mb-10">
+        <div ref={titleRef} className="flex flex-col items-center mb-10 reveal">
           <Header>Skills</Header>
           <p className="text-mocha-subtext0 mt-4 text-center max-w-lg font-exo">
             Technologies I work with to build robust applications.
@@ -17,7 +18,7 @@ const Skills = () => {
 
         <div
           ref={contentRef}
-          className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto"
+          className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto reveal-children"
         >
           {skillData.map((skill) => (
             <div

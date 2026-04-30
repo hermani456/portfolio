@@ -10,69 +10,79 @@ import {
 import { Button } from "@/components/ui/button";
 import { navLinks } from "@/utils";
 import Container from "@/components/Container";
-import { useRef } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLenis } from "lenis/react";
 import Image from "next/image";
 import dc from "@/app/img/dclogosm.png";
 
+gsap.registerPlugin(useGSAP);
+
+const scrollToSection = (selector) => {
+  document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
+};
+
 export default function Component() {
-  const lenis = useLenis();
   const ref = useRef(null);
   const iconRef = useRef(null);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
-  gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger);
-
+  // One-shot entrance animation — runs once on mount, doesn't affect scroll perf
+  // Uses fromTo to prevent flash: element stays hidden until animation begins
   useGSAP(() => {
-    gsap.to(ref.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-        onUpdate: (e) => {
-          if (e.direction === -1) {
-            gsap.to(ref.current, {
-              y: 0,
-              duration: 0.15,
-              ease: "power1.inOut",
-            });
-          } else {
-            gsap.to(ref.current, {
-              y: -100,
-              duration: 0.15,
-              ease: "power1.inOut",
-            });
-          }
+    gsap.fromTo(
+      ref.current,
+      { y: -100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 0.5,
+        ease: "back.inOut",
+        onComplete: () => {
+          // Clear inline transform so CSS classes (nav-hidden) can take over
+          gsap.set(ref.current, { clearProps: "transform" });
         },
-      },
-    });
+      }
+    );
 
-    gsap.to(ref.current, {
-      opacity: 1,
-    });
+    gsap.fromTo(
+      iconRef.current,
+      { y: -60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, delay: 0.5, ease: "back.inOut" }
+    );
+  }, []);
 
-    gsap.from(ref.current, {
-      y: -100,
-      duration: 1,
-      delay: 0.5,
-      ease: "back.inOut",
-    });
+  // Lightweight scroll direction detection — replaces the heavy GSAP ScrollTrigger
+  // Uses rAF-throttled scroll listener + CSS class toggle for GPU-accelerated transform
+  const handleScroll = useCallback(() => {
+    if (ticking.current) return;
+    ticking.current = true;
 
-    gsap.to(iconRef.current, {
-      opacity: 1,
-    });
+    requestAnimationFrame(() => {
+      const currentScrollY = window.scrollY;
+      const nav = ref.current;
 
-    gsap.from(iconRef.current, {
-      y: -60,
-      duration: 1,
-      delay: 0.5,
-      ease: "back.inOut",
+      if (nav) {
+        if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+          // Scrolling down — hide nav
+          nav.classList.add("nav-hidden");
+        } else {
+          // Scrolling up — show nav
+          nav.classList.remove("nav-hidden");
+        }
+      }
+
+      lastScrollY.current = currentScrollY;
+      ticking.current = false;
     });
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   return (
     <Container>
@@ -105,7 +115,7 @@ export default function Component() {
                     <link.icon className="h-5 w-5 fill-mocha-sky" />
                     <button
                       className="flex w-full items-center text-lg text-mocha-text font-exo text-left"
-                      onClick={() => lenis?.scrollTo(link.path)}
+                      onClick={() => scrollToSection(link.path)}
                     >
                       {link.name}
                     </button>
@@ -116,7 +126,7 @@ export default function Component() {
           </SheetContent>
         </Sheet>
         <nav
-          className="hidden lg:flex items-center justify-center h-16 w-fit fixed top-5 left-1/2 transform -translate-x-1/2 px-10 rounded-full gap-5 bg-mocha-mantle/80 backdrop-blur-md border border-mocha-surface0 shadow-lg opacity-0"
+          className="hidden lg:flex items-center justify-center h-16 w-fit fixed top-5 inset-x-0 mx-auto px-10 rounded-full gap-5 bg-mocha-mantle/80 backdrop-blur-md border border-mocha-surface0 shadow-lg opacity-0 nav-fixed"
           ref={ref}
         >
           <div className="flex justify-between gap-10 w-full font-orbitron items-center">
@@ -125,7 +135,7 @@ export default function Component() {
                 <button
                   className="text-mocha-text font-opens flex justify-center items-center hover:text-mocha-sky transition-all text-sm font-medium"
                   key={link.id}
-                  onClick={() => lenis?.scrollTo(link.path)}
+                  onClick={() => scrollToSection(link.path)}
                 >
                   {link.name}
                 </button>
@@ -144,7 +154,7 @@ export default function Component() {
                 <button
                   className="text-mocha-text font-opens flex justify-center items-center hover:text-mocha-sky transition-all text-sm font-medium"
                   key={link.id}
-                  onClick={() => lenis?.scrollTo(link.path)}
+                  onClick={() => scrollToSection(link.path)}
                 >
                   {link.name}
                 </button>

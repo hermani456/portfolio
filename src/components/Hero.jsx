@@ -8,11 +8,14 @@ import { useGSAP } from "@gsap/react";
 import { socialLinks } from "@/utils";
 import SocialIcon from "./SocialIcon";
 import Terminal from "./Terminal";
-import { useLenis } from "lenis/react";
+
+gsap.registerPlugin(useGSAP);
+
+const scrollToSection = (selector) => {
+  document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
+};
 
 const Hero = () => {
-  const lenis = useLenis();
-  gsap.registerPlugin(useGSAP);
   const blueTextRef = useRef();
   const pinkTextRef = useRef();
   const titleRef = useRef();
@@ -83,7 +86,7 @@ const Hero = () => {
             <div className="my-8">
               <button
                 className="btn font-orbitron text-mocha-text hover:text-mocha-base"
-                onClick={() => lenis?.scrollTo("#contact")}
+                onClick={() => scrollToSection("#contact")}
               >
                 Let&apos;s Talk
               </button>

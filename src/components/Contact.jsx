@@ -3,26 +3,14 @@ import { useRef, useState } from "react";
 import Container from "./Container";
 import { GiSpinningBlades } from "react-icons/gi";
 import emailjs from "@emailjs/browser";
-import useGsapAnimations from "@/hooks/useGsapAnimation";
+import useRevealOnScroll from "@/hooks/useRevealOnScroll";
 import Header from "./Header";
 
 const Contact = () => {
-  const { containerRef, titleRef, contentRef } = useGsapAnimations();
+  const { containerRef, titleRef, contentRef } = useRevealOnScroll();
   const form = useRef(null);
   const [loading, setLoading] = useState(false);
   const [sentMessageStatus, setSentMessageStatus] = useState("");
-
-  // const notify = () =>
-  //   toast.success("Mensaje enviado", {
-  //     position: "top-right",
-  //     autoClose: 3000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //   });
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -59,13 +47,13 @@ const Contact = () => {
 
   return (
     <Container id="contact">
-      <div className="opacity-0 mb-14 lg:mb-40" ref={containerRef}>
+      <div className="mb-14 lg:mb-40 reveal" ref={containerRef}>
         <div className="text-center">
-          <div ref={titleRef}>
+          <div ref={titleRef} className="reveal">
             <Header>Contact Me</Header>
           </div>
         </div>
-        <div ref={contentRef}>
+        <div ref={contentRef} className="reveal">
           <form
             ref={form}
             onSubmit={sendEmail}

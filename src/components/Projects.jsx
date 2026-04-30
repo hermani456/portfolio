@@ -7,11 +7,13 @@ import ProjectCard from "./ProjectCard";
 import Header from "./Header";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import useRevealOnScroll from "@/hooks/useRevealOnScroll";
+
+gsap.registerPlugin(useGSAP);
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
+  const isFirstRender = useRef(true);
 
   const categories = [
     { name: "All", value: "all" },
@@ -25,25 +27,17 @@ const Projects = () => {
     return project.category === filter;
   });
 
-  const containerRef = useRef(null);
+  const { containerRef, titleRef, contentRef } = useRevealOnScroll();
   const projectsRef = useRef(null);
-  const titleRef = useRef(null);
 
+  // Filter animation — only runs on user-initiated filter changes, not on first render.
+  // On first render, CSS reveal-children handles the scroll-in animation.
   useGSAP(() => {
-    gsap.to(containerRef.current, { opacity: 1 });
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
 
-    gsap.from(titleRef.current, {
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top 80%",
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-    });
-  }, []);
-
-  useGSAP(() => {
     gsap.fromTo(
       projectsRef.current.children,
       { y: 20, opacity: 0 },
@@ -59,9 +53,9 @@ const Projects = () => {
 
   return (
     <Container id="projects">
-      <div className="mb-14 lg:mb-40 opacity-0" ref={containerRef}>
+      <div className="mb-14 lg:mb-40 reveal" ref={containerRef}>
         
-        <div ref={titleRef} className="text-center mb-10">
+        <div ref={titleRef} className="text-center mb-10 reveal">
           <Header>Projects</Header>
           <p className="text-mocha-subtext0 mt-4 max-w-2xl mx-auto font-exo">
             A selection of my recent work, featuring full-stack applications and complex UI implementations.
@@ -85,8 +79,11 @@ const Projects = () => {
         </div>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          ref={projectsRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-children"
+          ref={(el) => {
+            projectsRef.current = el;
+            contentRef.current = el;
+          }}
         >
           {filteredProjects.map((project) => (
             <ProjectCard key={project.id} {...project} />
@@ -106,3 +103,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

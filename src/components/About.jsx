@@ -1,22 +1,22 @@
-import Head from "next/head";
+"use client";
 import Container from "./Container";
-import useGsapAnimations from "@/hooks/useGsapAnimation";
+import useRevealOnScroll from "@/hooks/useRevealOnScroll";
 import Header from "./Header";
 
 const About = () => {
-  const { containerRef, titleRef, contentRef } = useGsapAnimations();
+  const { containerRef, titleRef, contentRef } = useRevealOnScroll();
 
   return (
     <Container>
       <div
         id="about"
         ref={containerRef}
-        className="flex flex-col lg:flex-row justify-around items-center mb-14 lg:mb-40 opacity-0"
+        className="flex flex-col lg:flex-row justify-around items-center mb-14 lg:mb-40 reveal"
       >
-        <div ref={titleRef}>
+        <div ref={titleRef} className="reveal">
           <Header>About Me</Header>
         </div>
-        <div className="mt-10 lg:mt-0" ref={contentRef}>
+        <div className="mt-10 lg:mt-0 reveal" ref={contentRef}>
           <p className="text-mocha-subtext0 mt-5 font-exo text-lg leading-relaxed selection:bg-mocha-red/70">
             I&apos;m a{" "}
             <span className="text-mocha-peach text-xl font-semibold">
