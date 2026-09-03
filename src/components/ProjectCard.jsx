@@ -4,8 +4,8 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const ProjectCard = ({ name, description, techStack, live, github, img }) => {
   return (
-    <div className="group relative flex flex-col justify-between w-full max-w-sm mx-auto overflow-hidden rounded-2xl glass-panel hover:border-mocha-mauve/50 hover:shadow-xl hover:shadow-mocha-mauve/10 hover:-translate-y-1.5 transition-all duration-500 ease-out">
-      <div className="h-48 overflow-hidden relative">
+    <div className="group relative flex flex-col w-full max-w-sm mx-auto overflow-hidden rounded-2xl glass-panel hover:border-mocha-mauve/50 hover:shadow-xl hover:shadow-mocha-mauve/10 hover:-translate-y-1.5 transition-all duration-500 ease-out h-full">
+      <div className="h-48 overflow-hidden relative shrink-0">
         <Image
           src={img}
           alt={name}
@@ -16,7 +16,7 @@ const ProjectCard = ({ name, description, techStack, live, github, img }) => {
         <div className="absolute inset-0 bg-linear-to-t from-mocha-base to-transparent opacity-60"></div>
       </div>
 
-      <div className="p-6 flex flex-col gap-4 flex-1 justify-between">
+      <div className="p-6 flex flex-col justify-between flex-1 gap-6">
         <div>
           <h3 className="text-mocha-mauve font-orbitron text-xl font-bold mb-2">
             {name}
@@ -26,8 +26,8 @@ const ProjectCard = ({ name, description, techStack, live, github, img }) => {
           </p>
         </div>
 
-        <div>
-          <div className="flex flex-wrap gap-2 my-2">
+        <div className="flex flex-col gap-4 mt-auto">
+          <div className="flex flex-wrap gap-2">
             {techStack?.map((tech) => (
               <span
                 key={tech}
@@ -38,7 +38,7 @@ const ProjectCard = ({ name, description, techStack, live, github, img }) => {
             ))}
           </div>
 
-          <div className="flex items-center justify-between pt-4 mt-auto border-t border-mocha-overlay0/20">
+          <div className="flex items-center justify-between pt-4 border-t border-mocha-overlay0/20">
             <Link
               href={live}
               target="_blank"

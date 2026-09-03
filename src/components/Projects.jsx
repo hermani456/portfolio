@@ -78,7 +78,7 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={`${filter}-${project.id}`}
-              className={hasEntered ? "card-enter" : ""}
+              className={`h-full flex flex-col ${hasEntered ? "card-enter" : ""}`}
               style={
                 hasEntered
                   ? { animationDelay: `${Math.min(index * 75, 450)}ms` }
