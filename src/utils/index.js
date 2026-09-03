@@ -177,7 +177,7 @@ export const projects = [
       "TailwindCSS",
     ],
     github: "https://github.com/hermani456/family-task",
-    live: "https://familytask.diegocampuzano.dev/",
+    live: "https://familytask.diegocampuzano.cl/",
     img: familyTask,
   },
   {
@@ -195,7 +195,7 @@ export const projects = [
       "TailwindCSS",
     ],
     github: "https://github.com/hermani456/wasm-media-converter",
-    live: "https://mediaforge.diegocampuzano.dev/",
+    live: "https://mediaforge.diegocampuzano.cl/",
     img: converter,
   },
   {
@@ -214,7 +214,7 @@ export const projects = [
       "React Email",
     ],
     github: "https://github.com/hermani456/liquidapp",
-    live: "https://liquidapp.diegocampuzano.dev/",
+    live: "https://liquidapp.diegocampuzano.cl/",
     img: liquidapp,
   },
   {
@@ -233,7 +233,7 @@ export const projects = [
       "React PDF",
     ],
     github: "https://github.com/hermani456/wedding",
-    live: "https://weddingrsvp.diegocampuzano.dev/",
+    live: "https://weddingrsvp.diegocampuzano.cl/",
     img: wedding,
   },
   {
@@ -244,7 +244,7 @@ export const projects = [
       "A web page highlighting the diverse range of services offered by the company.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "EmailJS", "Frame Motion"],
     github: "https://github.com/hermani456/willka-next",
-    live: "https://willko.diegocampuzano.dev",
+    live: "https://willko.diegocampuzano.cl",
     img: wilko,
   },
   {
@@ -255,7 +255,7 @@ export const projects = [
       "A web page for a recruitment agency that enables users to upload their CVs easily.",
     techStack: ["NextJS", "TailwindCSS", "ReactJS", "Resend", "GSAP"],
     github: "https://github.com/hermani456/yme",
-    live: "https://yme.diegocampuzano.dev/",
+    live: "https://yme.diegocampuzano.cl/",
     img: yme,
   },
   {
