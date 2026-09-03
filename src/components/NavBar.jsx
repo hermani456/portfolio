@@ -14,22 +14,18 @@ import { useRef, useEffect, useCallback } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
+import Link from "next/link";
 import dc from "@/app/img/dclogosm.png";
 
 gsap.registerPlugin(useGSAP);
 
-const scrollToSection = (selector) => {
-  document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
-};
-
-export default function Component() {
+export default function NavBar() {
   const ref = useRef(null);
   const iconRef = useRef(null);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
   // One-shot entrance animation — runs once on mount, doesn't affect scroll perf
-  // Uses fromTo to prevent flash: element stays hidden until animation begins
   useGSAP(() => {
     gsap.fromTo(
       ref.current,
@@ -41,7 +37,6 @@ export default function Component() {
         delay: 0.5,
         ease: "back.inOut",
         onComplete: () => {
-          // Clear inline transform so CSS classes (nav-hidden) can take over
           gsap.set(ref.current, { clearProps: "transform" });
         },
       }
@@ -54,8 +49,7 @@ export default function Component() {
     );
   }, []);
 
-  // Lightweight scroll direction detection — replaces the heavy GSAP ScrollTrigger
-  // Uses rAF-throttled scroll listener + CSS class toggle for GPU-accelerated transform
+  // Lightweight scroll direction detection
   const handleScroll = useCallback(() => {
     if (ticking.current) return;
     ticking.current = true;
@@ -66,10 +60,8 @@ export default function Component() {
 
       if (nav) {
         if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-          // Scrolling down — hide nav
           nav.classList.add("nav-hidden");
         } else {
-          // Scrolling up — show nav
           nav.classList.remove("nav-hidden");
         }
       }
@@ -93,6 +85,7 @@ export default function Component() {
               size="icon"
               className="lg:hidden bg-mocha-surface0 text-mocha-mauve opacity-0"
               ref={iconRef}
+              aria-label="Open navigation menu"
             >
               <MenuIcon className="h-6 w-6 text-mocha-mauve" />
               <span className="sr-only">Toggle navigation menu</span>
@@ -105,59 +98,59 @@ export default function Component() {
             <SheetTitle className="text-mocha-text text-xl font-orbitron text-left mb-4">
               Navigation
             </SheetTitle>
-            <SheetDescription className="hidden">
+            <SheetDescription className="sr-only">
               Mobile navigation menu
             </SheetDescription>
             <div className="grid gap-4 py-6">
               {navLinks.map((link) => (
                 <SheetClose asChild key={link.id}>
-                  <div className="flex items-center gap-4 px-4 py-3 rounded-lg">
+                  <a
+                    href={link.path}
+                    className="flex items-center gap-4 px-4 py-3 rounded-lg text-lg text-mocha-text font-exo hover:bg-mocha-surface0/60 hover:text-mocha-sky transition-colors"
+                  >
                     <link.icon className="h-5 w-5 fill-mocha-sky" />
-                    <button
-                      className="flex w-full items-center text-lg text-mocha-text font-exo text-left"
-                      onClick={() => scrollToSection(link.path)}
-                    >
-                      {link.name}
-                    </button>
-                  </div>
+                    <span>{link.name}</span>
+                  </a>
                 </SheetClose>
               ))}
             </div>
           </SheetContent>
         </Sheet>
         <nav
-          className="hidden lg:flex items-center justify-center h-16 w-fit fixed top-5 inset-x-0 mx-auto px-10 rounded-full gap-5 bg-mocha-mantle/80 backdrop-blur-md border border-mocha-surface0 shadow-lg opacity-0 nav-fixed"
+          className="hidden lg:flex items-center justify-center h-16 w-fit fixed top-5 inset-x-0 mx-auto px-8 rounded-full gap-5 bg-mocha-mantle/85 backdrop-blur-md border border-mocha-surface0 shadow-lg opacity-0 nav-fixed"
           ref={ref}
+          aria-label="Main Navigation"
         >
-          <div className="flex justify-between gap-10 w-full font-orbitron items-center">
+          <div className="flex justify-between gap-6 w-full font-orbitron items-center">
             <div className="flex gap-5">
               {navLinks.slice(0, 2).map((link) => (
-                <button
-                  className="text-mocha-text font-opens flex justify-center items-center hover:text-mocha-sky transition-all text-sm font-medium"
+                <a
                   key={link.id}
-                  onClick={() => scrollToSection(link.path)}
+                  href={link.path}
+                  className="text-mocha-text font-orbitron flex justify-center items-center hover:text-mocha-sky transition-colors text-sm font-medium"
                 >
                   {link.name}
-                </button>
+                </a>
               ))}
             </div>
-            {/* <DoggoFace className="size-16" /> */}
-            <Image
-              src={dc}
-              alt="dc"
-              width={40}
-              height={40}
-              className="pointer-events-none opacity-80 hover:opacity-100 transition-opacity"
-            />
-            <div className="flex gap-5">
+            <a href="#home" aria-label="Go to homepage">
+              <Image
+                src={dc}
+                alt="Diego Campuzano Logo"
+                width={36}
+                height={36}
+                className="opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </a>
+            <div className="flex gap-5 items-center">
               {navLinks.slice(2).map((link) => (
-                <button
-                  className="text-mocha-text font-opens flex justify-center items-center hover:text-mocha-sky transition-all text-sm font-medium"
+                <a
                   key={link.id}
-                  onClick={() => scrollToSection(link.path)}
+                  href={link.path}
+                  className="text-mocha-text font-orbitron flex justify-center items-center hover:text-mocha-sky transition-colors text-sm font-medium"
                 >
                   {link.name}
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -187,110 +180,3 @@ function MenuIcon(props) {
     </svg>
   );
 }
-
-const Logo = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 110.68 121.77"
-      width="40"
-      height="40"
-      className="drop-shadow-sm"
-    >
-      <defs>
-        <style>
-          {`
-            .cls-1 { fill: #a0470d; }
-            .cls-1, .cls-3, .cls-4, .cls-6, .cls-7 { fill-rule: evenodd; }
-            .cls-3 { fill: #f7d7b1; }
-            .cls-4 { fill: #39474a; }
-            .cls-6 { fill: #bf9e83; }
-            .cls-7 { fill: #3f3d31; }
-          `}
-        </style>
-      </defs>
-      <path
-        className="cls-1"
-        d="M37.45,4c-16.74,4.38-14.14,28.52-17.6,42.3C18.76,50.66,15.46,61.22,10,61,4,60.74,4.73,42.7,4.46,38,4.28,34.83,3.8,28.85,0,27.81,7.15,2.49,19.52-5.83,37.45,4Z"
-        id="path1"
-        style={{
-          stroke: "var(--mocha-pink)",
-          strokeOpacity: 0.8,
-          fill: "var(--mocha-pink)",
-        }}
-      />
-      <path
-        className="cls-3"
-        d="M107.43,57C97.55,44.53,105.65,9.38,85.49,4a13.72,13.72,0,0,1-4.28.79C75.53,5,73.49,2.05,61.58,2,48.86,1.87,48.71,4.89,42.31,4.79A17,17,0,0,1,37.45,4C16.64,11,26.91,37.73,15.64,57c2.57,14.27,9.34,23.26,19,28.63A10.5,10.5,0,0,0,38,89.77c-.57,0-2.06,15.89,23.47,16.45,12.87.28,21.51-3.82,23.72-16.45,0,0,2.87-3.18,3.25-4.15,9.65-5.37,16.42-14.36,19-28.63Z"
-        id="path3"
-        style={{ stroke: "var(--mocha-sky)", strokeOpacity: 1, fill: "none" }}
-      />
-      <path
-        className="cls-1"
-        d="M62.09,61.53c4.15-5.12,12.59-3.79,15.11-2.92a21.43,21.43,0,0,1,7.09,4.42c7.63,7.1,5.26,19.28.18,24.36-9.15,9.15-20.94.89-22.38-2.92C60,82,60.19,63.88,62.09,61.53Z"
-        id="path4"
-        style={{
-          stroke: "var(--mocha-pink)",
-          strokeOpacity: 1,
-          fill: "var(--mocha-pink)",
-        }}
-      />
-      <path
-        className="cls-4"
-        d="M37.64,39.57a6,6,0,1,1-6,6,6,6,0,0,1,6-6Z"
-        id="path5"
-        style={{
-          strokeWidth: 1.2,
-          stroke: "var(--mocha-sky)",
-          strokeOpacity: 1,
-          fill: "none",
-        }}
-      />
-      <circle
-        cx="37.64"
-        cy="42.57"
-        r="3"
-        id="path6"
-        style={{ fill: "var(--mocha-pink)", fillOpacity: 1 }}
-      />
-      <path
-        className="cls-4"
-        d="M85.3,39.57a6,6,0,1,0,6,6,6,6,0,0,0-6-6Z"
-        id="path7"
-        style={{
-          strokeWidth: 1.2,
-          stroke: "var(--mocha-sky)",
-          strokeOpacity: 1,
-          fill: "none",
-        }}
-      />
-      <circle
-        cx="85.3"
-        cy="42.57"
-        r="3"
-        id="path8"
-        style={{ fill: "var(--mocha-pink)", fillOpacity: 1 }}
-      />
-      <path
-        className="cls-6"
-        d="M51,69.57s3.83,6.17,11.33,6.17,10.17-5.5,10.17-5.5"
-        id="path9"
-        style={{
-          stroke: "var(--mocha-pink)",
-          strokeOpacity: 1,
-          fill: "var(--mocha-pink)",
-        }}
-      />
-      <path
-        className="cls-7"
-        d="M61.34,103.52c-1.39-4.83,5.6-14.9,5.6-14.9-1.93-9.11-10.74-6.44-11,2a26.23,26.23,0,0,0,.6,5.32c.74,3.31,2.07,7.09,4.8,7.57Z"
-        id="path10"
-        style={{
-          stroke: "var(--mocha-sky)",
-          strokeOpacity: 1,
-          fill: "var(--mocha-sky)",
-        }}
-      />
-    </svg>
-  );
-};

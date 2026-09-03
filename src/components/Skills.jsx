@@ -8,7 +8,7 @@ const Skills = () => {
   const { containerRef, titleRef, contentRef } = useRevealOnScroll();
   return (
     <div className="my-20 lg:mb-40 reveal" ref={containerRef}>
-      <Container>
+      <Container id="skills">
         <div ref={titleRef} className="flex flex-col items-center mb-10 reveal">
           <Header>Skills</Header>
           <p className="text-mocha-subtext0 mt-4 text-center max-w-lg font-exo">

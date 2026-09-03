@@ -7,9 +7,8 @@ const About = () => {
   const { containerRef, titleRef, contentRef } = useRevealOnScroll();
 
   return (
-    <Container>
+    <Container id="about">
       <div
-        id="about"
         ref={containerRef}
         className="flex flex-col lg:flex-row justify-around items-center mb-14 lg:mb-40 reveal"
       >

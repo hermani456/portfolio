@@ -17,6 +17,7 @@
     --mocha-overlay0: #6c7086;
     --mocha-surface0: #313244;
     --mocha-surface1: #45475a;
+    --mocha-surface2: #585b70;
     --mocha-blue: #89b4fa;
     --mocha-lavender: #b4befe;
     --mocha-sapphire: #74c7ec;
@@ -31,8 +32,6 @@
     --mocha-pink: #f5c2e7;
     --mocha-flamingo: #f2cdcd;
     --mocha-rosewater: #f5e0dc;
-
-
   }
 }
 
@@ -51,6 +50,7 @@
   --color-mocha-overlay0: var(--mocha-overlay0);
   --color-mocha-surface0: var(--mocha-surface0);
   --color-mocha-surface1: var(--mocha-surface1);
+  --color-mocha-surface2: var(--mocha-surface2);
   --color-mocha-blue: var(--mocha-blue);
   --color-mocha-lavender: var(--mocha-lavender);
   --color-mocha-sapphire: var(--mocha-sapphire);
@@ -65,12 +65,6 @@
   --color-mocha-pink: var(--mocha-pink);
   --color-mocha-flamingo: var(--mocha-flamingo);
   --color-mocha-rosewater: var(--mocha-rosewater);
-
-  /* Legacy Support */
-  --color-back: var(--color-back);
-  --color-pri: var(--color-pri);
-  --color-sec: var(--color-sec);
-  --color-acc: var(--color-acc);
 
   /* Border Radius */
   --radius-lg: 0.5rem;
@@ -88,12 +82,18 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
   }
 
   body {
     background-color: var(--mocha-base);
     color: var(--mocha-text);
     font-family: var(--font-exo), sans-serif;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--mocha-mauve);
+    outline-offset: 2px;
   }
 }
 
@@ -277,4 +277,33 @@ p {
 .nav-hidden {
   transform: translate3d(0, -100px, 0);
 }
+
+/* High-end cinematic entrance & filter transition */
+@keyframes projectCardIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(0.97);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.card-enter {
+  animation: projectCardIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
 
