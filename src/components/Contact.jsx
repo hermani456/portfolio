@@ -10,10 +10,24 @@ const Contact = () => {
   const { containerRef, titleRef, contentRef } = useRevealOnScroll();
   const form = useRef(null);
   const [loading, setLoading] = useState(false);
-  const [sentMessageStatus, setSentMessageStatus] = useState("");
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    // Honeypot spam check
+    const botField = form.current?.bot_field?.value;
+    if (botField) {
+      // Silently ignore bot submission
+      e.target.reset();
+      setStatus({
+        type: "success",
+        message: "Message sent successfully. Thank you!",
+      });
+      setTimeout(() => setStatus({ type: "", message: "" }), 6000);
+      return;
+    }
+
     setLoading(true);
 
     emailjs
@@ -24,23 +38,26 @@ const Contact = () => {
         process.env.NEXT_PUBLIC_MAIL_USER
       )
       .then(
-        (result) => {
+        () => {
           setLoading(false);
           e.target.reset();
-          setSentMessageStatus("Message sent successfully. Thank you!");
+          setStatus({
+            type: "success",
+            message: "Message sent successfully. Thank you!",
+          });
           setTimeout(() => {
-            setSentMessageStatus("");
-          }, 5000);
+            setStatus({ type: "", message: "" });
+          }, 6000);
         },
-        (error) => {
+        () => {
           setLoading(false);
-          e.target.reset();
-          setSentMessageStatus(
-            "There was an error sending your message. Please try again later."
-          );
+          setStatus({
+            type: "error",
+            message: "There was an error sending your message. Please try again later.",
+          });
           setTimeout(() => {
-            setSentMessageStatus("");
-          }, 5000);
+            setStatus({ type: "", message: "" });
+          }, 6000);
         }
       );
   };
@@ -51,32 +68,68 @@ const Contact = () => {
         <div className="text-center">
           <div ref={titleRef} className="reveal">
             <Header>Contact Me</Header>
+            <p className="text-mocha-subtext0 mt-4 max-w-lg mx-auto font-exo">
+              Have a project in mind, a question, or just want to connect? Send me a message!
+            </p>
           </div>
         </div>
         <div ref={contentRef} className="reveal">
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="mx-auto pt-5 max-w-xl sm:pt-14"
+            className="mx-auto pt-5 max-w-xl sm:pt-10"
           >
-            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div className="sm:col-span-2">
+            {/* Honeypot field for bot spam prevention */}
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="bot_field">Do not fill this out</label>
+              <input
+                type="text"
+                name="bot_field"
+                id="bot_field"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
+            <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
+              <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-semibold leading-6 text-mocha-subtext1 font-orbitron"
                 >
                   Name
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2">
                   <input
                     required
                     type="text"
                     name="name"
                     id="name"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 bg-back text-mocha-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                    placeholder="Diego"
+                    className="block w-full rounded-lg border border-mocha-surface1 px-4 py-3 bg-mocha-surface0/70 text-mocha-text shadow-sm placeholder:text-mocha-overlay0 focus:outline-none focus:ring-2 focus:ring-mocha-mauve focus:border-mocha-mauve sm:text-sm font-exo transition-colors"
                   />
                 </div>
               </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold leading-6 text-mocha-subtext1 font-orbitron"
+                >
+                  Email
+                </label>
+                <div className="mt-2">
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    className="block w-full rounded-lg border border-mocha-surface1 px-4 py-3 bg-mocha-surface0/70 text-mocha-text shadow-sm placeholder:text-mocha-overlay0 focus:outline-none focus:ring-2 focus:ring-mocha-mauve focus:border-mocha-mauve sm:text-sm font-exo transition-colors"
+                  />
+                </div>
+              </div>
+
               <div className="sm:col-span-2">
                 <label
                   htmlFor="subject"
@@ -84,16 +137,18 @@ const Contact = () => {
                 >
                   Subject
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2">
                   <input
                     required
                     type="text"
                     name="subject"
                     id="subject"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 bg-back text-mocha-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                    placeholder="Project Inquiry / Job Opportunity"
+                    className="block w-full rounded-lg border border-mocha-surface1 px-4 py-3 bg-mocha-surface0/70 text-mocha-text shadow-sm placeholder:text-mocha-overlay0 focus:outline-none focus:ring-2 focus:ring-mocha-mauve focus:border-mocha-mauve sm:text-sm font-exo transition-colors"
                   />
                 </div>
               </div>
+
               <div className="sm:col-span-2">
                 <label
                   htmlFor="message"
@@ -101,40 +156,47 @@ const Contact = () => {
                 >
                   Message
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2">
                   <textarea
                     required
-                    type="text"
+                    rows={4}
                     name="message"
                     id="message"
-                    className="block w-full rounded-md border-0 px-3.5 py-2 min-h-24 max-h-40 bg-back text-mocha-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                    placeholder="Tell me about your project or inquiry..."
+                    className="block w-full rounded-lg border border-mocha-surface1 px-4 py-3 min-h-28 max-h-48 bg-mocha-surface0/70 text-mocha-text shadow-sm placeholder:text-mocha-overlay0 focus:outline-none focus:ring-2 focus:ring-mocha-mauve focus:border-mocha-mauve sm:text-sm font-exo transition-colors"
                   />
                 </div>
               </div>
             </div>
-            <div className="mt-10 flex justify-center">
+
+            <div className="mt-8 flex justify-center">
               <button
                 type="submit"
                 disabled={loading}
-                className="btn font-orbitron"
+                className="btn font-orbitron min-w-36"
               >
                 {loading ? (
                   <div className="flex justify-center items-center gap-2">
-                    <div>Sending</div>
+                    <span>Sending</span>
                     <GiSpinningBlades className="animate-spin" />
                   </div>
                 ) : (
-                  "Send"
+                  "Send Message"
                 )}
               </button>
             </div>
-            <p
-              className={`min-h-10 text-center mt-5 font-exo text-pri transition-all duration-500 ${
-                sentMessageStatus ? "opacity-100" : "opacity-0"
+
+            <div
+              role="status"
+              aria-live="polite"
+              className={`min-h-10 text-center mt-5 font-exo transition-all duration-300 font-medium ${
+                status.message ? "opacity-100" : "opacity-0"
+              } ${
+                status.type === "error" ? "text-mocha-red" : "text-mocha-green"
               }`}
             >
-              {sentMessageStatus}
-            </p>
+              {status.message}
+            </div>
           </form>
         </div>
       </div>

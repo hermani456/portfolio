@@ -11,13 +11,7 @@ import Terminal from "./Terminal";
 
 gsap.registerPlugin(useGSAP);
 
-const scrollToSection = (selector) => {
-  document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
-};
-
 const Hero = () => {
-  const blueTextRef = useRef();
-  const pinkTextRef = useRef();
   const titleRef = useRef();
   const imgRef = useRef();
 
@@ -49,21 +43,22 @@ const Hero = () => {
       ease: "power2.out",
     });
   }, []);
+
   return (
     <>
       <div className="-z-10">
         <div className="absolute w-[20rem] lg:w-160 h-80 lg:h-160 radial-gradient rounded-full -top-[20%] -left-[7%] opacity-20"></div>
       </div>
       <Container id="home">
-        <div className="flex flex-col lg:flex-row justify-around items-center min-h-[calc(100dvh-5rem)] relative ">
+        <div className="flex flex-col lg:flex-row justify-around items-center min-h-[calc(100dvh-5rem)] relative">
           <div ref={titleRef} className="opacity-0">
             <Terminal />
             <h1 className="text-mocha-text text-4xl lg:text-6xl font-orbitron font-semibold mt-8 leading-tight">
-              <span className="text-mocha-lavender" ref={pinkTextRef}>
+              <span className="text-mocha-lavender">
                 Hi, I&apos;m{" "}
               </span>{" "}
               <br />{" "}
-              <span className="text-mocha-green" ref={blueTextRef}>
+              <span className="text-mocha-green">
                 Diego Campuzano
               </span>
             </h1>
@@ -84,18 +79,18 @@ const Hero = () => {
               ))}
             </div>
             <div className="my-8">
-              <button
+              <a
+                href="#contact"
                 className="btn font-orbitron text-mocha-text hover:text-mocha-base"
-                onClick={() => scrollToSection("#contact")}
               >
                 Let&apos;s Talk
-              </button>
+              </a>
             </div>
           </div>
           <div ref={imgRef} className="opacity-0">
             <Image
               src={doggy}
-              alt="An image of a guy coding with his dog beside him"
+              alt="Illustration of Diego coding with his dog"
               width={500}
               height={500}
               className="pointer-events-none mb-10 drop-shadow-2xl"

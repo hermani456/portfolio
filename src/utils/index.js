@@ -27,7 +27,10 @@ import liquidapp from "@/app/img/liquidapp.png";
 import converter from "@/app/img/converter.webp";
 import trafalgar from "@/app/img/trafalgar.webp";
 import familyTask from "@/app/img/familytask.webp";
+import { FaCodeBranch, FaCode } from "react-icons/fa6";
 import { IoInfiniteSharp } from "react-icons/io5";
+
+export const resumeUrl = "/resume.pdf";
 
 export const navLinks = [
   {
@@ -44,12 +47,18 @@ export const navLinks = [
   },
   {
     id: 3,
+    name: "Skills",
+    path: "#skills",
+    icon: FaCode,
+  },
+  {
+    id: 4,
     name: "Projects",
     path: "#projects",
     icon: FaProjectDiagram,
   },
   {
-    id: 4,
+    id: 5,
     name: "Contact",
     path: "#contact",
     icon: FaPhoneAlt,
